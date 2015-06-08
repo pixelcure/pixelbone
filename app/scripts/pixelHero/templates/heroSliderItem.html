@@ -1,0 +1,9 @@
+<div class="hero-gallery-outer hide">
+	<ul class="hero-images gallery slider row">
+		<% _.forEach(items, function(item){ %>
+		<li class="item">
+			<img src="<%= item.thumbnail_images.full.url %>" alt="<%= item.title %>" />
+		</li><!-- / end item -->
+		<% }); %>
+	</ul><!-- / end hero gallery -->
+</div><!-- / end hero gallery outer -->

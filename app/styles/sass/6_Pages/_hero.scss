@@ -1,0 +1,25 @@
+  ////////////////////////////////
+ // HERO ////////////////////////
+////////////////////////////////
+
+section.hero {
+	height: 100%;
+	min-height: 100%;
+	
+	// Inner Callouts
+	.inner-callouts {
+		.callout {
+			&:last-child { margin-right: 0; }
+		} // End Callout
+	} // End Inner Callouts
+
+	// Bottom Callouts
+	.bottom-callouts {
+		.callout {
+			&:last-child {
+				margin-right: 0;
+			}
+		} // End Callout
+	} // End Bottom Callouts
+
+} // end hero / homepage <--
