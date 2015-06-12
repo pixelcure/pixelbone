@@ -1,0 +1,6 @@
+<% skills.reverse(); %>
+<% _.forEach(skills, function(skill){ %>
+<li class="<%= skill.title %>">
+	<%= skill.content %>
+</li><!-- / end skill -->
+<% }); %>

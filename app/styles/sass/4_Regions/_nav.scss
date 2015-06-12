@@ -1,0 +1,115 @@
+  ////////////////////////////////
+ // NAV /////////////////////////
+////////////////////////////////
+
+nav {
+	  background: $white;
+	  @include box-shadow(1px 1px 1px $greenShadow);
+	  cursor: pointer;
+	  height: 45px;
+	  position: fixed;
+	  top: 120px;
+	  width: 45px;
+	  z-index: 1000;
+
+		  // on hover
+		  &:hover {
+		  	background: $medicalGreen;
+		  	transition: .3s;
+
+		  	// change menu icon lines to white
+		  	#hidden-menu-icon span {
+		  		background: $white;
+		  	}
+		  } // end hover
+
+		// nav icon
+		#hidden-menu-icon {
+			cursor: pointer;
+			float: right;
+			height: 35px;
+			margin: 12px 8px 0 0;
+			position: relative;
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+			-webkit-transition: .5s ease-in-out;
+			-moz-transition: .5s ease-in-out;
+			-o-transition: .5s ease-in-out;
+			transition: .5s ease-in-out;
+			width: 30px;
+
+			// line backgrounds, transforms
+			span {
+				background: $medicalGreen;
+				display: block;
+				height: 2px;
+				left: 0;
+				opacity: 1;
+				position: absolute;
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				transform: rotate(0deg);
+				-webkit-transition: .25s ease-in-out;
+				-moz-transition: .25s ease-in-out;
+				-o-transition: .25s ease-in-out;
+				transition: .25s ease-in-out;
+				width: 100%;
+				
+				&:nth-child(1) {
+					top: 0;
+					-webkit-transform-origin: left center;
+					-moz-transform-origin: left center;
+					-o-transform-origin: left center;
+					transform-origin: left center;
+				} // end nth child 1
+				&:nth-child(2) {
+					top: 10px;
+					-webkit-transform-origin: left center;
+					-moz-transform-origin: left center;
+					-o-transform-origin: left center;
+					transform-origin: left center;
+				} // end nth child 2
+				&:nth-child(3) {
+					top: 20px;
+					-webkit-transform-origin: left center;
+					-moz-transform-origin: left center;
+					-o-transform-origin: left center;
+					transform-origin: left center;
+				} // end nth child 3
+			} // End Span
+
+			// on nav open
+			&.open {
+
+				span {
+					&:nth-child(1) {
+						left: 0;
+						-webkit-transform: rotate(45deg);
+						-moz-transform: rotate(45deg);
+						-o-transform: rotate(45deg);
+						transform: rotate(45deg);
+						top: -3px;
+						width: 40px;							
+					} // end nth child 3
+					&:nth-child(2) {
+						opacity: 0;
+						width: 0;
+					} // end nth child 2
+					&:nth-child(3) { 
+						left: 0;							
+						-webkit-transform: rotate(-45deg);
+						-moz-transform: rotate(-45deg);
+						-o-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+						top: 26px;
+						width: 40px;
+					} // End nth child 3
+				} // End Span
+
+			} // end Open
+		} // End Hidden Menu Icon
+
+} // End Nav <--
