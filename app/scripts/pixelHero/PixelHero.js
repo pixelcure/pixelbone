@@ -6,7 +6,8 @@ define([
     'ldsh!./templates/heroTagline',
     'ldsh!./templates/heroCallout',
     'ldsh!./templates/heroBottomCallout',
-    'ldsh!./templates/heroSliderItem'
+    'ldsh!./templates/heroSliderItem',
+    'ldsh!./templates/heroSkills'
 ], function(
     $, 
     _, 
@@ -15,7 +16,8 @@ define([
     heroTaglineTemplate, 
     heroCalloutTemplate, 
     heroBottomCalloutTemplate, 
-    heroSliderItemTemplate
+    heroSliderItemTemplate,
+    heroInnerSkillsTemplate
 ){
 
     // Define our object that will contain our views
@@ -31,7 +33,10 @@ define([
     PixelHero.Models.Tagline = Backbone.Model.extend({});
 
     // Hero Inner Callouts
-    PixelHero.Models.InnerCallout = Backbone.Model.extend({});   
+    PixelHero.Models.InnerCallout = Backbone.Model.extend({});
+
+    // Hero Inner Skills
+    PixelHero.Models.InnerSkill = Backbone.Model.extend({});   
 
     // Hero Bottom Callouts
     PixelHero.Models.BottomCallout = Backbone.Model.extend({});
@@ -46,7 +51,7 @@ define([
 
         model : PixelHero.Models.Tagline,
 
-        url : 'http://pixelcureinteractive.com/?json=1&post_type=pixelHeroBlurb',
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=heroTagline',
 
         parse : function(res) {
             return res.posts
@@ -59,7 +64,20 @@ define([
         
         model : PixelHero.Models.InnerCallout,
         
-        url : 'http://pixelcureinteractive.com/?json=1&post_type=pixelHeroCallout',
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=heroCallouts',
+        
+        parse : function(res) {
+            return res.posts
+        }
+   
+    });    
+
+    // Hero Inner Skills
+    PixelHero.Collections.InnerSkills = Backbone.Collection.extend({
+        
+        model : PixelHero.Models.InnerSkill,
+        
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=heroSkills',
         
         parse : function(res) {
             return res.posts
@@ -72,7 +90,7 @@ define([
         
         model : PixelHero.Models.HeroImage,
         
-        url : 'http://pixelcureinteractive.com/?json=1&post_type=post&category=hero-images',
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=post&category=hero-slider',
         
         parse : function(res) {
             return res.posts
@@ -85,7 +103,7 @@ define([
         
         model : PixelHero.Models.BottomCallout,
         
-        url : 'http://pixelcureinteractive.com/?json=1&post_type=pixelBottomCallout',
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=pixelBottomCallout',
         
         parse : function(res) {
             return res.posts
@@ -113,7 +131,7 @@ define([
         },
 
         render : function() {
-            
+
             // hero tagline
             var tagline = this.collection.toJSON();
             
@@ -168,7 +186,7 @@ define([
 
             return this;
         }
-    }) // End Inner Callout
+    }); // End Inner Callout
 
     // Bottom Callout
     PixelHero.Views.BottomCallout = Backbone.View.extend({
@@ -205,7 +223,7 @@ define([
 
             return this;
         }
-    }) // End Bottom Callout
+    }); // End Bottom Callout
 
     // Hero Slider Showpiece
     PixelHero.Views.HeroImage = Backbone.View.extend({
@@ -242,7 +260,44 @@ define([
 
             return this;
         }
-    }) // End Bottom Callout
+    }); // End Hero Slider Showpiece
+
+    // Hero Skills
+    PixelHero.Views.HeroInnerSkills = Backbone.View.extend({
+        template : heroInnerSkillsTemplate,
+
+        initialize : function () {
+            
+            // on change, render
+            this.listenTo(this.collection, 'change', this.render)
+            
+            // on reset, render
+            this.listenTo(this.collection, 'reset', this.render)
+            
+            // on sync, render
+            this.listenTo(this.collection, 'sync', this.render);
+            
+        },
+
+        render : function() {
+
+            // hero skills collection
+            var items = this.collection.toJSON();
+            
+            // compile template
+            _.template( this.template );
+
+            // pass the data into the template
+            var data = this.template({
+                skills : items
+            });
+
+            // append data to $el
+            this.$el.append( data );
+
+            return this;
+        }
+    }); // End Hero Skills
 
     return PixelHero;
 

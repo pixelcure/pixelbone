@@ -9,7 +9,12 @@
 	display: none !important;
 	visibility: hidden;
 }
-
+/*
+ * Hide Element
+ */
+.hide {
+	display: none;
+}
 /*
  * Clear children elements that are floating with hiding overflow on parent div
  */

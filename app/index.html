@@ -18,34 +18,89 @@
         <!-- endbuild -->
     </head>
     <body>
-
         <header class="outer-wrapper">
-            <section class="inner-wrapper row inner-header">
-                <h1>Pixel Cure</h1>
+            <section class="inner-wrapper inner-header">
+                <div class="row">
+                    
+                    <div class="logo span_3">
+                        <a href="/">
+                            <img src="images/logo.svg" alt="Pixel Cure">
+                        </a>
+                    </div><!-- / end logo -->
+
+                    <ul class="social span_6 right">
+                       <li>
+                            <a href="mailto:pthibedeau@gmail.com" target="_blank" title="Email Me">
+                                <span class="icon-mail"></span>
+                            </a>
+                        </li>                       
+                        <li>
+                            <a href="http://www.linkedin.com/pub/paul-thibedeau/59/a96/ab0/" target="_blank" title="Linked In">
+                                <span class="icon-linkedin"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/pixelcure" target="_blank" title="Git Hub">
+                                <span class="icon icon-github"></span>
+                            </a>
+                        </li> 
+                    </ul><!-- / end social -->
+
+                </div><!-- / end inner header row -->
             </section><!-- / end inner wrapper -->
-        </header>
+        </header><!-- / end header -->
         
-        <nav>
-            <span class="icon"></span>    
-        </nav>
+        <nav title="Menu">
+            <div id="hidden-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+            </div><!-- / end hidden menu icon -->    
+        </nav><!-- / end nav -->
+
+        <aside class="scroll-top" title="Scroll to Top">
+            <span class="icon icon-point-up"></span>
+        </aside><!-- / end scroll top -->
 
         <main class="outer-wrapper">
-            <section class="hero inner-wrapper">
-                <div class="loading">
-                    <img src="images/loading.gif" alt="Loading..." id="heroLoader" />
-                </div><!-- / end loading -->
-            </section>
-            <section class="the-process inner-wrapper" />
-            <section class="my-work inner-wrapper" />
-            <section class="contact inner-wrapper" />
-        </main>
-        
-<!--         <footer class="outer-wrapper">
-            <secton class="inner-wrapper row">
-                <span>&copy; 2015 Pixel Cure Interactive | All Rights Reserved</span>
-            </secton>
-        </footer> -->
+            
+            <!-- Hero -->
+            <section class="hero inner-wrapper row">
+                <div class="row tagline span_12"></div><!-- / end tagline -->
+                <div class="intro callout span_6"></div><!-- / end tagline -->
+                <ul class="hero-skills span_6"></ul><!-- / end skills -->
+            </section><!-- / end hero -->
+            
+            <!-- The Process -->
+            <section class="the-process inner-wrapper hide">
+                <div class="row">                
+                </div><!-- / end process row -->
+            </section><!-- / end the process -->
+            
+            <!-- Projects -->
+            <section class="projects inner-wrapper hide">
+                <div class="row">                
+                </div><!-- / end projects row -->
+            </section><!-- / end projects work -->
 
+            <!-- Contact -->
+            <section class="contact inner-wrapper hide">
+                <div class="row">                
+
+                </div><!-- / end contact row -->
+            </section><!-- / end contact -->
+
+        </main><!-- / end main -->
+        
+        <footer class="outer-wrapper">
+            <section class="inner-wrapper row">
+                
+                <span class="span_12 copyright">&copy; 2015 Pixel Cure Interactive | All Rights Reserved</span>
+                
+            </section><!-- / end footer inner -->
+
+            <section class="outer-wrapper illustration" /><!-- / end illustration -->
+        </footer><!-- / end footer -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -54,7 +109,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-54478369-1');ga('send','pageview');
         </script>
 
         <!-- build:js scripts/main.js -->

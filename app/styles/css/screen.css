@@ -8,7 +8,7 @@
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,800,300);
-@import url(http://fonts.googleapis.com/css?family=Oleo+Script);
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script:400,700);
 /* line 8, ../sass/0_Utility/_helper.scss */
 .hidden {
   display: none !important;
@@ -16,9 +16,17 @@
 }
 
 /*
+ * Hide Element
+ */
+/* line 15, ../sass/0_Utility/_helper.scss */
+.hide {
+  display: none;
+}
+
+/*
  * Clear children elements that are floating with hiding overflow on parent div
  */
-/* line 16, ../sass/0_Utility/_helper.scss */
+/* line 21, ../sass/0_Utility/_helper.scss */
 .overflow-hidden {
   overflow: hidden;
 }
@@ -26,7 +34,7 @@
 /*
  * Sets Image to be 100% to it's container and remain aspect ratio
  */
-/* line 24, ../sass/0_Utility/_helper.scss */
+/* line 29, ../sass/0_Utility/_helper.scss */
 img {
   width: 100%;
   height: auto;
@@ -35,7 +43,7 @@ img {
 /*
  * Float elements left
  */
-/* line 32, ../sass/0_Utility/_helper.scss */
+/* line 37, ../sass/0_Utility/_helper.scss */
 .left {
   float: left;
 }
@@ -43,7 +51,7 @@ img {
 /*
  * Float elements right
  */
-/* line 40, ../sass/0_Utility/_helper.scss */
+/* line 45, ../sass/0_Utility/_helper.scss */
 .right {
   float: right;
 }
@@ -51,7 +59,7 @@ img {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 47, ../sass/0_Utility/_helper.scss */
+/* line 52, ../sass/0_Utility/_helper.scss */
 .invisible {
   visibility: hidden;
 }
@@ -60,7 +68,7 @@ img {
  * Clearfix helper
  * Used to contain floats: h5bp.com/q
  */
-/* line 55, ../sass/0_Utility/_helper.scss */
+/* line 60, ../sass/0_Utility/_helper.scss */
 .clearfix:before, .row:before,
 .clearfix:after,
 .row:after {
@@ -68,7 +76,7 @@ img {
   display: table;
 }
 
-/* line 61, ../sass/0_Utility/_helper.scss */
+/* line 66, ../sass/0_Utility/_helper.scss */
 .clearfix:after, .row:after {
   clear: both;
 }
@@ -752,11 +760,316 @@ strong {
   content: "\e60d";
 }
 
-/* line 5, ../sass/3_Components/_component.scss */
+/* line 6, ../sass/3_Components/_component.scss */
 div.loading {
   margin: 0 auto;
   max-width: 43px;
   width: 4.47917%;
+}
+
+/* line 13, ../sass/3_Components/_component.scss */
+.scroll-top {
+  background: white;
+  -moz-box-shadow: 1px 1px 1px #345c58;
+  -webkit-box-shadow: 1px 1px 1px #345c58;
+  box-shadow: 1px 1px 1px #345c58;
+  cursor: pointer;
+  bottom: 0;
+  height: 40px;
+  position: fixed;
+  right: 0;
+  width: 40px;
+  z-index: 1000;
+}
+/* line 24, ../sass/3_Components/_component.scss */
+.scroll-top:hover {
+  background: #00554c;
+}
+/* line 28, ../sass/3_Components/_component.scss */
+.scroll-top:hover span {
+  color: white;
+}
+/* line 34, ../sass/3_Components/_component.scss */
+.scroll-top span {
+  color: #00554c;
+  font-size: 15px;
+  font-size: 1.15385rem;
+  line-height: 18.75px;
+  line-height: 1.44231rem;
+  display: block;
+  margin: 10px auto;
+  width: 15px;
+}
+
+/* line 5, ../sass/4_Regions/_footer.scss */
+footer {
+  background: #00554c;
+  display: none;
+  margin-top: 45px;
+  overflow: hidden;
+}
+/* line 12, ../sass/4_Regions/_footer.scss */
+footer span.copyright {
+  font-size: 11px;
+  font-size: 0.84615rem;
+  line-height: 13.75px;
+  line-height: 1.05769rem;
+}
+/* line 16, ../sass/4_Regions/_footer.scss */
+footer section.illustration {
+  background: url(../../images/footer-bottom.png) no-repeat right #22bdaf;
+  background-size: 1000px;
+  -moz-background-size: 1000px;
+  -ms-background-size: 1000px;
+  height: 417px;
+}
+/* line 23, ../sass/4_Regions/_footer.scss */
+footer section.illustration blockquote {
+  position: absolute;
+  right: 50px;
+  text-align: right;
+  top: 100px;
+  width: 27.77778%;
+}
+/* line 31, ../sass/4_Regions/_footer.scss */
+footer section.illustration blockquote p {
+  font-family: "Oleo Script", Arial, Sans Serif;
+  font-weight: 100;
+  font-size: 18px;
+  font-size: 1.38462rem;
+  line-height: 22.5px;
+  line-height: 1.73077rem;
+  text-shadow: 1px 1px #345c58;
+  line-height: 1.5em;
+}
+/* line 40, ../sass/4_Regions/_footer.scss */
+footer section.illustration blockquote strong {
+  color: #00554c;
+  font-size: 15px;
+  font-size: 1.15385rem;
+  line-height: 18.75px;
+  line-height: 1.44231rem;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px white;
+}
+
+/* line 5, ../sass/4_Regions/_header.scss */
+header {
+  background: white;
+  -moz-box-shadow: 1px 1px 10px 1px #345c58;
+  -webkit-box-shadow: 1px 1px 10px 1px #345c58;
+  box-shadow: 1px 1px 10px 1px #345c58;
+  height: 50px;
+  overflow: hidden;
+}
+/* line 12, ../sass/4_Regions/_header.scss */
+header .inner-header .row {
+  margin: 0;
+}
+/* line 16, ../sass/4_Regions/_header.scss */
+header .inner-header .row .logo {
+  max-width: 115px;
+  min-width: 115px;
+  width: 12.5%;
+}
+/* line 21, ../sass/4_Regions/_header.scss */
+header .inner-header .row .logo a {
+  display: block;
+}
+/* line 23, ../sass/4_Regions/_header.scss */
+header .inner-header .row .logo a:hover {
+  opacity: 0.4;
+  transition: .3s;
+}
+/* line 31, ../sass/4_Regions/_header.scss */
+header .inner-header .row .social {
+  float: right;
+  overflow: hidden;
+  padding: 0;
+  width: 7.29167%;
+}
+/* line 37, ../sass/4_Regions/_header.scss */
+header .inner-header .row .social li {
+  float: left;
+  list-style: none;
+  margin-right: 10%;
+}
+/* line 42, ../sass/4_Regions/_header.scss */
+header .inner-header .row .social li:last-child {
+  margin-right: 0;
+}
+/* line 46, ../sass/4_Regions/_header.scss */
+header .inner-header .row .social li:hover span {
+  transition: .3s;
+  opacity: 0.4;
+}
+/* line 53, ../sass/4_Regions/_header.scss */
+header .inner-header .row .social li span {
+  color: #22bdaf;
+  font-size: 16px;
+  font-size: 1.23077rem;
+  line-height: 20px;
+  line-height: 1.53846rem;
+}
+
+/* line 9, ../sass/4_Regions/_hero.scss */
+section.hero div.hero-blurb h1 {
+  font-family: "Oleo Script", Arial, Sans Serif;
+  font-size: 32px;
+  font-size: 2.46154rem;
+  line-height: 40px;
+  line-height: 3.07692rem;
+  text-shadow: 1px 1px 1px #345c58;
+}
+/* line 18, ../sass/4_Regions/_hero.scss */
+section.hero .callout.intro h2 {
+  font-family: "Oleo Script", Arial, Sans Serif;
+  font-size: 24px;
+  font-size: 1.84615rem;
+  line-height: 30px;
+  line-height: 2.30769rem;
+  margin: 0 0 5px 0;
+  text-shadow: 1px 1px 1px #345c58;
+}
+/* line 24, ../sass/4_Regions/_hero.scss */
+section.hero .callout.intro p {
+  color: #00554c;
+  font-size: 19px;
+  font-size: 1.46154rem;
+  line-height: 23.75px;
+  line-height: 1.82692rem;
+  font-weight: 100;
+  line-height: 1.8em;
+  margin-top: 0;
+  text-shadow: 1px 2px 1px white;
+}
+/* line 36, ../sass/4_Regions/_hero.scss */
+section.hero .hero-skills {
+  width: 31.25%;
+}
+/* line 39, ../sass/4_Regions/_hero.scss */
+section.hero .hero-skills li {
+  background: rgba(0, 85, 76, 0.4);
+  list-style: none;
+  margin: 8.33333%;
+  padding: 1.66667%;
+  text-align: center;
+}
+/* line 46, ../sass/4_Regions/_hero.scss */
+section.hero .hero-skills li p {
+  color: white;
+  font-size: 16px;
+  font-size: 1.23077rem;
+  line-height: 20px;
+  line-height: 1.53846rem;
+  font-weight: 100;
+}
+
+/* line 5, ../sass/4_Regions/_nav.scss */
+nav {
+  background: white;
+  -moz-box-shadow: 1px 1px 1px #345c58;
+  -webkit-box-shadow: 1px 1px 1px #345c58;
+  box-shadow: 1px 1px 1px #345c58;
+  cursor: pointer;
+  height: 45px;
+  position: fixed;
+  top: 120px;
+  width: 45px;
+  z-index: 1000;
+}
+/* line 16, ../sass/4_Regions/_nav.scss */
+nav:hover {
+  background: #00554c;
+  transition: .3s;
+}
+/* line 21, ../sass/4_Regions/_nav.scss */
+nav:hover #hidden-menu-icon span {
+  background: white;
+}
+/* line 27, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon {
+  cursor: pointer;
+  float: right;
+  height: 35px;
+  margin: 12px 8px 0 0;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  width: 30px;
+}
+/* line 44, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon span {
+  background: #00554c;
+  display: block;
+  height: 2px;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+  width: 100%;
+}
+/* line 61, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon span:nth-child(1) {
+  top: 0;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+/* line 68, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+/* line 75, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+/* line 88, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon.open span:nth-child(1) {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  width: 40px;
+}
+/* line 97, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+/* line 101, ../sass/4_Regions/_nav.scss */
+nav #hidden-menu-icon.open span:nth-child(3) {
+  left: 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 26px;
+  width: 40px;
 }
 
 /* line 5, ../sass/6_Pages/_404.scss */
@@ -858,8 +1171,8 @@ html, body {
 
 /* line 31, ../sass/screen.scss */
 body {
-  background: white;
-  color: #22bdaf;
+  background: url(../../../images/background.jpg) repeat;
+  color: white;
   font-family: "Open Sans", Arial, Sans Serif;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -874,21 +1187,4 @@ body {
 a {
   color: white;
   text-decoration: none;
-}
-
-/* line 46, ../sass/screen.scss */
-.top-outer {
-  bottom: -45px;
-  display: none;
-  height: 80px;
-  left: 50%;
-  margin: 0 0 0 -40px;
-  position: fixed;
-  width: 80px;
-  z-index: 100;
-}
-/* line 56, ../sass/screen.scss */
-.top-outer span {
-  display: block;
-  padding-top: 8px;
 }

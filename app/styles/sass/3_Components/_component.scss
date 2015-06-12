@@ -2,8 +2,40 @@
  // Components ///////////////////////////
 /////////////////////////////////////////
 
+// Preloader
 div.loading {
 	margin: 0 auto;
 	max-width: 43px;
 	width: percentage(43/960);
-}
+} // End Preloader
+
+// Scroll to top
+.scroll-top {
+	background: $white;
+	@include box-shadow(1px 1px 1px $greenShadow);
+	cursor: pointer;
+	bottom: 0;
+	height: 40px;
+	position: fixed;
+	right: 0;
+	width: 40px;
+	z-index: 1000;
+	
+	&:hover {
+		background: $medicalGreen;
+		
+		// icon hover
+		span {
+			color: $white;
+		}
+	} // end hover
+
+	// icon
+	span {
+		color: $medicalGreen;
+		@include font-size(15px);
+	  	display: block;
+		margin: 10px auto;
+		width: 15px;
+	} // end icon
+} // end scroll top

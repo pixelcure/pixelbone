@@ -1,8 +1,10 @@
-<section class="inner-wrapper row hide bottom-callouts">
-	<% _.forEach(callouts, function(callout){ %>
-		<div class="callout span_4">
-			<h2><%= callout.title %></h2>
-			<%= callout.content %>
-		</div><!-- / end callout -->
-	<%	}); %>
-</section>
+<% _.forEach(callouts, function(callout){ 
+	
+		var title = callout.title.toLowerCase(); 
+
+	%>
+	<div class="callout <% title %>">
+		<h2><%= callout.title %></h2>
+		<%= callout.content %>
+	</div><!-- / end callout -->
+<%	}); %>

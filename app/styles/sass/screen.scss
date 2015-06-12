@@ -29,8 +29,8 @@ html, body {
 
 
 body {
-	background: $white;
-	color: $teal;
+	background: url(../../../images/background.jpg) repeat;
+	color: $white;
 	font-family: $openSans;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -41,20 +41,4 @@ body {
 a {
 	color: $white;
 	text-decoration: none;
-}
-
-.top-outer {
-	bottom: -45px;
-	display: none;
-	height: 80px;
-	left: 50%;
-	margin: 0 0 0 -40px;
-	position: fixed;
-	width: 80px;
-	z-index: 100;
-    
-    span {
-        display: block;
-        padding-top:8px;
-    }	
 }

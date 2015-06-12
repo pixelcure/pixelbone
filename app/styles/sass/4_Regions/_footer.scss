@@ -3,5 +3,47 @@
 ///////////////////////////////////////
 
 footer {
+	background: $medicalGreen;
+	display: none;
+	margin-top: 45px;
+	overflow: hidden;
 
+	// copyright
+	span.copyright {
+		@include font-size(11px);
+	}
+
+	section.illustration {
+		background: url(../../images/footer-bottom.png) no-repeat right $teal;
+		background-size: 1000px;
+		-moz-background-size: 1000px;
+		-ms-background-size: 1000px;
+		height: 417px;
+		
+		blockquote {
+		  position: absolute;
+		  right: 50px;
+		  text-align: right;
+		  top: 100px;
+		  width: percentage(400/1440);
+		  
+		  // the quote
+		  p {
+		  	font-family: $oleo;
+		  	font-weight: 100;
+		  	@include font-size(18px);
+		  	text-shadow: 1px 1px $greenShadow;
+		  	line-height: 1.5em;
+		  } // end quote p
+		  
+		  // from
+		  strong {
+		  	color: $medicalGreen;
+		  	@include font-size(15px);
+		  	font-weight: 100;
+		  	text-shadow: 1px 1px 1px $white;
+		  }
+		} // end blockquote
+
+	} // end footer illustration
 } // end Footer <---

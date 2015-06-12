@@ -38,14 +38,6 @@ module.exports = function (grunt) {
                 files: '<%= yeoman.app %>/styles/sass/**/*.scss',
                 tasks: ['compass:dev']
             },            
-            coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
@@ -58,12 +50,6 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js'
                 ]
-            },
-            jst: {
-                files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
-                ],
-                tasks: ['jst']
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
@@ -142,40 +128,13 @@ module.exports = function (grunt) {
                 }
             }
         },
-        coffee: {
-            dist: {
-                files: [{
-                    // rather than compiling multiple files here you should
-                    // require them into your main .coffee file
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/scripts',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
-                    ext: '.js'
-                }]
-            }
-        },
         requirejs: {
             dist: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     baseUrl: '<%= yeoman.app %>/scripts',
                     optimize: 'none',
-                    paths: {
-                        'templates': '../../.tmp/scripts/templates',
-                        'jquery': '../../app/bower_components/jquery/jquery',
-                        'underscore': '../../app/bower_components/underscore/underscore',
-                        'backbone': '../../app/bower_components/backbone/backbone'
-                    },
+                    mainConfigFile: "app/scripts/require.config.js",
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
@@ -252,8 +211,8 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/{,*/}*.*',
+                        'images/{,*/}*.{webp,gif,svg,png}',
+                        'fonts/{,*/}*.*',
                     ]
                 }]
             }
@@ -261,16 +220,6 @@ module.exports = function (grunt) {
         bower: {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
-            }
-        },
-        jst: {
-            options: {
-                amd: true
-            },
-            compile: {
-                files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
-                }
             }
         },
         rev: {
@@ -325,9 +274,7 @@ module.exports = function (grunt) {
         if (target === 'test') {
             return grunt.task.run([
                 'clean:server',
-                'coffee',
                 'createDefaultTemplate',
-                'jst',
                 'connect:test',
                 'open:test',
                 'watch:livereload'
@@ -336,9 +283,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'coffee:dist',
             'createDefaultTemplate',
-            'jst',
             'connect:livereload',
             'open:server',
             'watch'
@@ -349,9 +294,7 @@ module.exports = function (grunt) {
         isConnected = Boolean(isConnected);
         var testTasks = [
                 'clean:server',
-                'coffee',
                 'createDefaultTemplate',
-                'jst',
                 'connect:test',
                 'mocha',
                 'watch:test'
@@ -368,9 +311,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'coffee',
         'createDefaultTemplate',
-        'jst',
         'useminPrepare',
         'requirejs',
         'imagemin',

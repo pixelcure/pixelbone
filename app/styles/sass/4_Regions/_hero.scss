@@ -5,4 +5,51 @@
 
 section.hero {
 
+	// Hero Tagline
+	div.hero-blurb h1 {
+		font-family: $oleo;
+		@include font-size(32px);
+		text-shadow: 1px 1px 1px $greenShadow;
+	}
+	
+	// Hero Inner Callouts
+	.callout {
+		&.intro {
+			h2 {
+				font-family: $oleo;
+				@include font-size(24px);
+				margin: 0 0 5px 0;
+				text-shadow: 1px 1px 1px $greenShadow;
+			}
+			p {
+				color: $medicalGreen;
+				@include font-size(19px);
+				font-weight: 100;
+				line-height: 1.8em;
+				margin-top: 0;
+				text-shadow: 1px 2px 1px $white;	
+			}
+		} // End Intro
+	} // End Callout
+
+	// Hero Dev Skills
+	.hero-skills {
+		width: percentage(300/960);
+
+		li {
+			background: rgba(0, 85, 76, .4);
+			list-style: none;
+			margin: percentage(25/300);
+			padding: percentage(5/300);
+			text-align: center;
+			
+			p {
+				color: $white;
+				@include font-size(16px);
+				font-weight: 100;
+			}
+		}
+	} // End Hero Skills
+
+
 } // End Hero  <---

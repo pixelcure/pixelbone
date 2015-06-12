@@ -3,5 +3,60 @@
 ////////////////////////////////
 
 header {
+	background: $white;
+	@include box-shadow(1px 1px 10px 1px $greenShadow);
+	height: 50px;
+	overflow: hidden;
+	
+	// inner header
+	.inner-header .row {
+		margin: 0;
+
+		// logo
+		.logo {
+			max-width: 115px;
+			min-width: 115px;
+			width: percentage(120/960);
+
+			a {
+				display: block;
+				&:hover {
+					opacity: 0.4;
+					transition: .3s;
+				}
+			}
+		} // end logo
+
+		// social media
+		.social {
+			float: right;
+			overflow: hidden;
+			padding: 0;
+			width: percentage(70/960);
+
+			li {
+				float: left;
+				list-style: none;
+				margin-right: percentage(10/100);
+				
+				&:last-child { margin-right: 0; }
+				
+				// on icon hover
+				&:hover {
+					span { 
+						transition: .3s; 
+						opacity: .4 
+					}
+				}
+
+				// icon
+				span {
+					color: $teal;
+					@include font-size(16px);
+				}
+			}
+		} // end social
+	
+	} // end inner header
 
 } // End Header <---
