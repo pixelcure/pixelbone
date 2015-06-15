@@ -34,7 +34,7 @@ require([
             // Contact
             'contact' : 'contact',
 
-            // Not Found
+            // Homepage
             '' : 'pixelRoot'
 
         },
