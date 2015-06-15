@@ -2,12 +2,15 @@
  // HEADER //////////////////////
 ////////////////////////////////
 
-header {
+header.outer-wrapper {
 	background: $white;
 	@include box-shadow(1px 1px 10px 1px $greenShadow);
 	height: 50px;
 	overflow: hidden;
-	
+  	position: fixed;
+  	top: 0;
+  	z-index: 1000;	
+
 	// inner header
 	.inner-header .row {
 		margin: 0;
