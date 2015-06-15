@@ -14,36 +14,84 @@ footer {
 	}
 
 	section.illustration {
-		background: url(../../images/footer-bottom.png) no-repeat right $teal;
+		background: url(../../images/footer-bottom.png) no-repeat right 85px $teal;
 		background-size: 1000px;
 		-moz-background-size: 1000px;
 		-ms-background-size: 1000px;
 		height: 417px;
+		transition: .3s;
 		
-		blockquote {
-		  position: absolute;
-		  right: 50px;
-		  text-align: right;
-		  top: 100px;
-		  width: percentage(400/1440);
-		  
-		  // the quote
-		  p {
-		  	font-family: $oleo;
-		  	font-weight: 100;
-		  	@include font-size(18px);
-		  	text-shadow: 1px 1px $greenShadow;
-		  	line-height: 1.5em;
-		  } // end quote p
-		  
-		  // from
-		  strong {
-		  	color: $medicalGreen;
-		  	@include font-size(15px);
-		  	font-weight: 100;
-		  	text-shadow: 1px 1px 1px $white;
-		  }
-		} // end blockquote
+			@include max-screen(1000px){
+				background-position: 130px 85px;
+			}
+
+			@include max-screen(850px){
+				background-position: 0 85px;
+			}
+
+			@include max-screen(405px){
+				 background-position: -25px 145px;	
+			}
+
+			// Quote
+			blockquote {
+			  position: absolute;
+			  right: 50px;
+			  text-align: right;
+			  top: 75px;
+			  transition: .3s;
+			  width: percentage(400/1440);
+			  
+			  @include max-screen(1055px){
+			  	top: 50px;
+			  }		  
+
+			  @include max-screen(1000px){
+			  	top: 30px;
+			  }
+
+			  @include max-screen(720px){
+			  	right: 100px;
+			  	width: percentage(600/1440);
+			  }
+			  @include max-screen(650px){
+				  margin-top: 0;
+				  top: 50px;
+				  width: 40%;
+				  right: 50px;
+			  }
+
+			  @include max-screen(405px){
+			  	right: 0;
+			  	top: 20px;
+			  }
+
+			  // the quote
+			  p {
+			  	font-family: $oleo;
+			  	font-weight: 100;
+			  	@include font-size(18px);
+			  	text-shadow: 1px 1px $greenShadow;
+			  	line-height: 1.5em;
+			  } // end quote p
+			  
+			  // from
+			  strong {
+			  	color: $medicalGreen;
+			  	@include font-size(15px);
+			  	font-weight: 100;
+			  	text-shadow: 1px 1px 1px $white;
+			  }
+
+			  @include max-screen(650px){
+			  	p {
+			  		@include font-size(14px);
+			  	}
+			  	strong {
+			  		@include font-size(14px);
+			  	}
+			  }
+			} // end blockquote
 
 	} // end footer illustration
 } // end Footer <---

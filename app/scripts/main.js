@@ -9,15 +9,35 @@ require([
     'backbone',
     'util',
     'global/global',
+    'routers/routers.main',
+    'navMenu/navMenu.main',
     'pixelHero/PixelHero',
     'pixelFooter/PixelFooter'
-], function ($, _, Backbone, Util, pixelGlobal, PixelHero, PixelFooter) {
+], function ($, _, Backbone, Util, pixelGlobal, PixelRouters, PixelNav, PixelHero, PixelFooter) {
 
 
-	// init global js
-	pixelGlobal.init();
-
+	// Build Name Space for instiated conustructors
 	var pixelCure = pixelCure || {};
+
+	// Router
+	pixelCure.router = new PixelRouters.Router();
+	
+	// Enable Push State
+	Backbone.history.start({ pushState : true });
+
+	// Navigation
+	pixelCure.nav = {
+
+		init : function() {
+		
+			var pixelNav = new PixelNav.View({
+				el : $('#pixelNav'),
+				router : pixelCure.router
+			});
+
+			pixelNav.render();
+		}
+	};
 
 	// Hero
 	pixelCure.hero = {
@@ -101,14 +121,12 @@ require([
 			$('.hide').removeClass('.hide');
 			
 		}
-	} // End Hero
-
+	}; // End Hero
 
 	// Footer
 	pixelCure.footer = {
 		init : function() {
 			var footer = $('footer .illustration');
-
 			/** FOOTER QUOTES **/
 		    // Define new Quote, Quotes Collection, and Quote View
 		    var footerQuote = new PixelFooter.Models.Quote(),
@@ -126,7 +144,10 @@ require([
 			});		
 
 		}
-	} // End Footer
+	}; // End Footer
+
+	// Init Navigation
+	pixelCure.nav.init();
 
 	// Init Hero, This is the homepage
 	pixelCure.hero.init();

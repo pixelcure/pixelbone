@@ -16,9 +16,10 @@ define([
     }
 
     // Navigation
-    pixelGlobal.nav = function(nav, icon){
+    pixelGlobal.nav = function(nav, icon, navList){
         var $nav = $(nav),
-            $icon = $(icon);
+            $icon = $(icon),
+            $navList = $(navList);
 
         // set click event and on click hide/show
         $nav.on('click', function(){
@@ -26,8 +27,10 @@ define([
             // if open, remove it, if not, close it
             if( $icon.hasClass('open') ){
                 $icon.removeClass('open');
+                $navList.removeClass('open');
             } else {
                 $icon.addClass('open');
+                $navList.addClass('open');
             }
 
         });
@@ -40,10 +43,13 @@ define([
         pixelGlobal.scrollUp($('.scroll-top'));
 
         // invoke nav
-        pixelGlobal.nav($('nav'), $('#hidden-menu-icon'));
+        pixelGlobal.nav($('nav'), $('#hidden-menu-icon'), $('nav ul.nav-list'));
 
 
     } // end init
+
+    // init global js
+    pixelGlobal.init();
 
     return pixelGlobal;
 

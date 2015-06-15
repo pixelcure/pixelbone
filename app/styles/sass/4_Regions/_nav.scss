@@ -12,16 +12,94 @@ nav {
 	  width: 45px;
 	  z-index: 1000;
 
-		  // on hover
-		  &:hover {
-		  	background: $medicalGreen;
-		  	transition: .3s;
+	  	// on hover
+	  	&:hover {
+	  		background: $medicalGreen;
+	  		transition: .3s;
 
-		  	// change menu icon lines to white
-		  	#hidden-menu-icon span {
-		  		background: $white;
-		  	}
-		  } // end hover
+	  		// change menu icon lines to white
+	  		#hidden-menu-icon span {
+	  			background: $white;
+	  		}
+	  	} // end hover
+
+	  	// nav menu
+	  	ul.nav-list {
+  			background: $medicalGreen;
+  			@include box-shadow(1px 1px 5px 1px $greenShadow);
+  			display: none;
+  			position: fixed;
+  			height: 100%;
+  			left: -250px;
+  			top: 50px;
+  			transtion: 15s;
+  			margin: 0;	 
+  			padding: 0; 		
+  			width: percentage(400/1440);
+
+  			// open nav
+  			&.open {
+  				display: block;
+  				left: 0;
+
+  				@include max-screen(535px){
+  					width: 100%;
+  				}
+  			} // end open nav
+
+  			li {
+  				color: $white;
+  				@include font-size(24px);
+  				font-weight: 100;
+  				list-style: none;
+  				
+  				// Close Button
+  				&#closeNav {
+  					border-left: 1px solid $greenShadow;
+  					position: absolute;
+					right: -50px;
+					top: 15%;
+					width: 50px;
+
+					@include max-screen(535px){
+						right: 0;
+						top: 0;
+					}
+
+					button {
+  						background: $medicalGreen;
+  						border: 0;
+  						color: $white;
+  						@include font-size(18px);
+  						font-weight: 800;
+
+  						&:hover {
+  							background: $white;
+  							color: $medicalGreen;
+  						}
+					} // end close button
+  				} // end close nav
+
+  				// Link
+  				a {
+  					display: block;
+					padding: 15px percentage(25/200);
+					transition: 0.3s;
+
+					@include max-screen(535px){
+						text-align: center;
+					}
+
+					// on hover
+  					&:hover {
+  						background: $white;
+  						color: $medicalGreen;
+  						// text-shadow: 1px 1px 1px $greenShadow;
+  					}
+
+  				} // end link
+  			} // end list item
+	  	} // end nav list
 
 		// nav icon
 		#hidden-menu-icon {

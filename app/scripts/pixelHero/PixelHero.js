@@ -59,6 +59,19 @@ define([
 
     });
 
+    // Hero Tagline
+    PixelHero.Collections.BaseCollection = Backbone.Collection.extend({
+
+        // model : this.options.model,
+
+        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=heroTagline',
+
+        parse : function(res) {
+            return res.posts
+        }
+
+    });
+
     // Hero Inner Callouts
     PixelHero.Collections.InnerCallouts = Backbone.Collection.extend({
         
