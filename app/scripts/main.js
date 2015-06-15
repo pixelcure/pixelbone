@@ -128,7 +128,7 @@ require([
 	pixelCure.router = new pixelCure.Router();
 	
 	// Enable Push State
-	Backbone.history.start({ pushState : true, trigger : true });
+	Backbone.history.start({ pushState : true, trigger : true, root : '/' });
 
 	// Pixel Cure App Components (Nav, Footer, Footer)
 	pixelCure.pixelComponents = {
