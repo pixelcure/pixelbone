@@ -804,6 +804,7 @@ div.loading {
 /* line 44, ../sass/3_Components/_component.scss */
 .pixel-view {
   transition: 0.3s;
+  margin-top: 70px;
   position: relative;
 }
 @media screen and (max-width: 1160px) {
@@ -1170,7 +1171,7 @@ nav ul.nav-list li#closeNav button:hover {
 /* line 84, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li a {
   display: block;
-  padding: 15px 12.5%;
+  padding: 15px 6.25%;
   transition: 0.3s;
 }
 @media screen and (max-width: 535px) {
@@ -1183,8 +1184,10 @@ nav ul.nav-list li a {
 nav ul.nav-list li a:hover {
   background: white;
   color: #00554c;
+  margin-left: 2.5%;
+  transition: .3s;
 }
-/* line 105, ../sass/4_Regions/_nav.scss */
+/* line 106, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon {
   cursor: pointer;
   float: right;
@@ -1201,7 +1204,7 @@ nav #hidden-menu-icon {
   transition: .5s ease-in-out;
   width: 30px;
 }
-/* line 122, ../sass/4_Regions/_nav.scss */
+/* line 123, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span {
   background: #00554c;
   display: block;
@@ -1219,7 +1222,7 @@ nav #hidden-menu-icon span {
   transition: .25s ease-in-out;
   width: 100%;
 }
-/* line 139, ../sass/4_Regions/_nav.scss */
+/* line 140, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(1) {
   top: 0;
   -webkit-transform-origin: left center;
@@ -1227,7 +1230,7 @@ nav #hidden-menu-icon span:nth-child(1) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 146, ../sass/4_Regions/_nav.scss */
+/* line 147, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(2) {
   top: 10px;
   -webkit-transform-origin: left center;
@@ -1235,7 +1238,7 @@ nav #hidden-menu-icon span:nth-child(2) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 153, ../sass/4_Regions/_nav.scss */
+/* line 154, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(3) {
   top: 20px;
   -webkit-transform-origin: left center;
@@ -1243,7 +1246,7 @@ nav #hidden-menu-icon span:nth-child(3) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 166, ../sass/4_Regions/_nav.scss */
+/* line 167, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(1) {
   left: 0;
   -webkit-transform: rotate(45deg);
@@ -1253,12 +1256,12 @@ nav #hidden-menu-icon.open span:nth-child(1) {
   top: -3px;
   width: 40px;
 }
-/* line 175, ../sass/4_Regions/_nav.scss */
+/* line 176, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(2) {
   opacity: 0;
   width: 0;
 }
-/* line 179, ../sass/4_Regions/_nav.scss */
+/* line 180, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(3) {
   left: 0;
   -webkit-transform: rotate(-45deg);

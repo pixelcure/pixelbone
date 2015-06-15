@@ -18,17 +18,18 @@ define([
 
             // compile template
             _.template( this.template );
-            console.log(this.options.router);
+
             // pass in data
             var data = this.template({
                 route : this.options.router.routes
             });
 
+            // append data
             this.$el.append( data );
 
-        }
+        } // End Render
         
-    });
+    }); // End Pixel Nav
 
 
     return PixelNav;

@@ -9,43 +9,58 @@ require([
     'backbone',
     'util',
     'global/global',
-    'routers/routers.main',
     'navMenu/navMenu.main',
     'pixelHero/PixelHero',
     'pixelFooter/PixelFooter'
-], function ($, _, Backbone, Util, pixelGlobal, PixelRouters, PixelNav, PixelHero, PixelFooter) {
+], function ($, _, Backbone, Util, pixelGlobal, PixelNav, PixelHero, PixelFooter) {
 
 
 	// Build Name Space for instiated conustructors
 	var pixelCure = pixelCure || {};
 
-	// Router
-	pixelCure.router = new PixelRouters.Router();
-	
-	// Enable Push State
-	Backbone.history.start({ pushState : true });
+    pixelCure.Router = Backbone.Router.extend({
 
-	// Navigation
-	pixelCure.nav = {
+        routes : {
 
-		init : function() {
-		
-			var pixelNav = new PixelNav.View({
-				el : $('#pixelNav'),
-				router : pixelCure.router
-			});
+            // Process of my Dev Workflow
+            'process' : 'process',
 
-			pixelNav.render();
-		}
-	};
+            // Design and Art
+            'design' : 'design',
+            
+            // About Me
+            'about' : 'about',
+            
+            // Contact
+            'contact' : 'contact',
 
-	// Hero
-	pixelCure.hero = {
-		init : function () {
+            // Not Found
+            '' : 'pixelRoot'
+
+        },
+
+        process : function() {
+            console.log('process');
+        },
+
+        design : function() {
+            console.log('design');
+        },
+
+        about : function() {
+            console.log('about');
+        },
+
+        contact : function() {
+            console.log('contact');
+        },
+
+        pixelRoot : function() {
 
 			var hero = $('section.hero');
 
 			/** HERO SLIDER **/
+
 		    // Define new Slider Item, Slider Items Collection, and Slider View
 		    var heroSlider = new PixelHero.Models.HeroImage(),
 		    	heroSliderCol = new PixelHero.Collections.HeroImages(),
@@ -58,6 +73,7 @@ require([
 			//heroSliderCol.fetch({});
 
 			/** TAGLINE **/
+			
 			// Define new Tagline, Tagline Collection, and Tagline View
 		    var heroTagline = new PixelHero.Models.Tagline(),
 		        heroTaglineCol = new PixelHero.Collections.Tagline(),
@@ -68,6 +84,7 @@ require([
 
 
 		    /** HERO INNER CALLOUTS **/
+		    
 		    // Define new Inner Callout, Inner Callouts Collection, and Inner Callout View
 		    var heroInnerCallout = new PixelHero.Models.InnerCallout(),
 		    	heroInnerCalloutCol = new PixelHero.Collections.InnerCallouts(),
@@ -78,6 +95,7 @@ require([
 
 
 			/** HERO INNER SKILLS **/
+		    
 		    // Define new Inner Skill, Inner Skills Collection, and Inner Skills View
 		    var heroInnerSkill = new PixelHero.Models.InnerSkill(),
 		    	heroInnerSkillCol = new PixelHero.Collections.InnerSkills(),
@@ -86,48 +104,66 @@ require([
 		    		collection : heroInnerSkillCol
 		    	});
 
-
-			/** HERO BOTTOM CALLOUTS **/
-		    // Define new Inner Callout, Inner Callouts Collection, and Inner Callout View
-		    var heroBottomCallout = new PixelHero.Models.BottomCallout(),
-		    	heroBottomCalloutCol = new PixelHero.Collections.BottomCallouts(),
-		    	heroBottomCalloutView = new PixelHero.Views.BottomCallout({
-		    		el : hero,
-		    		collection : heroBottomCalloutCol
-		    	});
 		    // Fetch Tagline
-		    heroTaglineCol.fetch({
-		    	success : function() {
+		    heroTaglineCol.fetch();
 
-		    	}
-		    });
 			// Fetch Inner Callouts
-			heroInnerCalloutCol.fetch({
-				success : function () {
-
-				}
-			});		    
+			heroInnerCalloutCol.fetch();		    
 
 			// Fetch Inner Skills
-			heroInnerSkillCol.fetch({
-				success : function() {
-				}					
-			});
-			
-			// Fetch Bottom Callouts
-			// heroBottomCalloutCol.fetch();			
+			heroInnerSkillCol.fetch();		
 
+			// Hide Preloader
 			$('#heroLoader').hide();
-			$('.hide').removeClass('.hide');
-			
-		}
-	}; // End Hero
 
-	// Footer
-	pixelCure.footer = {
+			// Show All Views
+			$('.hide').removeClass('hide');
+        
+        } // End Pixel Root
+
+    }); // End Router
+
+
+	// New Rrouter instance
+	pixelCure.router = new pixelCure.Router();
+	
+	// Enable Push State
+	Backbone.history.start({ pushState : true, trigger : true });
+
+	// Pixel Cure App Components (Nav, Footer, Footer)
+	pixelCure.pixelComponents = {
 		init : function() {
+
+			// Navigation
+			var pixelNav = new PixelNav.View({
+				el : $('#pixelNav'),
+				router : pixelCure.router
+			});
+
+			// Render Nav
+			pixelNav.render();
+
+			// Click Hander to Navigate to Routers
+			var clickRoute = $('nav ul.nav-list li a');
+
+			// On URL Click, Navigate to new router
+			clickRoute.on('click', function( e ){
+				
+				// prevent default anchor behavior
+				e.preventDefault();
+				
+				// hide views
+				// $('.pixel-view').hide();
+
+				// navigate
+				pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
+			
+			}); // end click route
+
+
+			// Footer
 			var footer = $('footer .illustration');
-			/** FOOTER QUOTES **/
+		    
 		    // Define new Quote, Quotes Collection, and Quote View
 		    var footerQuote = new PixelFooter.Models.Quote(),
 		    	footerQuoteCol = new PixelFooter.Collections.Quotes(),
@@ -139,20 +175,17 @@ require([
 			// Fetch Quotes
 			footerQuoteCol.fetch({
 				success : function(){
-					$('footer').fadeIn(100);
+					
+					// show footer after success
+					$('footer').fadeIn( 100 );
+				
 				}
-			});		
+			});	// End Fetch			
 
-		}
-	}; // End Footer
+		} // end init
+	} // End Pixel Nav
 
-	// Init Navigation
-	pixelCure.nav.init();
-
-	// Init Hero, This is the homepage
-	pixelCure.hero.init();
-
-	// Init Footer
-	pixelCure.footer.init();
+	// Init Pixel Cure App Components
+	pixelCure.pixelComponents.init();
 
 });

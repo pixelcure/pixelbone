@@ -83,7 +83,7 @@ nav {
   				// Link
   				a {
   					display: block;
-					padding: 15px percentage(25/200);
+					padding: 15px percentage(25/400);
 					transition: 0.3s;
 
 					@include max-screen(535px){
@@ -94,7 +94,8 @@ nav {
   					&:hover {
   						background: $white;
   						color: $medicalGreen;
-  						// text-shadow: 1px 1px 1px $greenShadow;
+  						margin-left: percentage(10/400);
+  						transition: .3s;
   					}
 
   				} // end link
