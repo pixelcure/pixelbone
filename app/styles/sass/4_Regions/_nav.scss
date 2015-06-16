@@ -24,27 +24,34 @@ nav {
 	  	} // end hover
 
 	  	// nav menu
-	  	ul.nav-list {
+	  	ul.nav-list { 		
   			background: $medicalGreen;
   			@include box-shadow(1px 1px 5px 1px $greenShadow);
   			display: none;
   			position: fixed;
   			height: 100%;
-  			left: -250px;
+  			left: 0;
   			top: 50px;
-  			transtion: 15s;
+  			transtion: 5s;
   			margin: 0;	 
   			padding: 0; 		
-  			width: percentage(400/1440);
+			width: 400px;
 
   			// open nav
-  			&.open {
+  			&.open {  
   				display: block;
+  				transition: 5s;
   				left: 0;
+			 	transform: translate3d( 0, 0, 0 );
+                -webkit-transform: translate3d( 0, 0, 0 );
+                -webkit-transition: .25s ease-in-out;
+				-moz-transition: .25s ease-in-out;
+				-o-transition: .25s ease-in-out;
 
   				@include max-screen(535px){
   					width: 100%;
   				}
+
   			} // end open nav
 
   			li {
@@ -77,11 +84,13 @@ nav {
   							background: $white;
   							color: $medicalGreen;
   						}
+
 					} // end close button
   				} // end close nav
 
   				// Link
   				a {
+  					border-bottom: 1px dotted rgba(109, 134, 94, .6);
   					display: block;
 					padding: 15px percentage(25/400);
 					transition: 0.3s;
@@ -94,7 +103,7 @@ nav {
   					&:hover {
   						background: $white;
   						color: $medicalGreen;
-  						margin-left: percentage(10/400);
+  						padding-left: percentage(30/400);
   						transition: .3s;
   					}
 
@@ -192,3 +201,12 @@ nav {
 		} // End Hidden Menu Icon
 
 } // End Nav <--
+
+// For Nav Animation
+main.shift {
+	overflow: hidden;
+	transition: 0;
+	transform: translate3d(350px, 0, 0);
+	-wekbit-transform: translate3d(350px, 0, 0);
+	-moz-transform: translate3d(350px, 0, 0);
+}

@@ -21,7 +21,9 @@
 .overflow-hidden { 
 	overflow: hidden; 
 }
-
+.overflow-hidden-x {
+	overflow-x: hidden;
+}
 /*
  * Sets Image to be 100% to it's container and remain aspect ratio
  */

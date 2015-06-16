@@ -31,10 +31,15 @@
   overflow: hidden;
 }
 
+/* line 24, ../sass/0_Utility/_helper.scss */
+.overflow-hidden-x {
+  overflow-x: hidden;
+}
+
 /*
  * Sets Image to be 100% to it's container and remain aspect ratio
  */
-/* line 29, ../sass/0_Utility/_helper.scss */
+/* line 31, ../sass/0_Utility/_helper.scss */
 img {
   width: 100%;
   height: auto;
@@ -43,7 +48,7 @@ img {
 /*
  * Float elements left
  */
-/* line 37, ../sass/0_Utility/_helper.scss */
+/* line 39, ../sass/0_Utility/_helper.scss */
 .left {
   float: left;
 }
@@ -51,7 +56,7 @@ img {
 /*
  * Float elements right
  */
-/* line 45, ../sass/0_Utility/_helper.scss */
+/* line 47, ../sass/0_Utility/_helper.scss */
 .right {
   float: right;
 }
@@ -59,7 +64,7 @@ img {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 52, ../sass/0_Utility/_helper.scss */
+/* line 54, ../sass/0_Utility/_helper.scss */
 .invisible {
   visibility: hidden;
 }
@@ -68,7 +73,7 @@ img {
  * Clearfix helper
  * Used to contain floats: h5bp.com/q
  */
-/* line 60, ../sass/0_Utility/_helper.scss */
+/* line 62, ../sass/0_Utility/_helper.scss */
 .clearfix:before, .row:before,
 .clearfix:after,
 .row:after {
@@ -76,7 +81,7 @@ img {
   display: table;
 }
 
-/* line 66, ../sass/0_Utility/_helper.scss */
+/* line 68, ../sass/0_Utility/_helper.scss */
 .clearfix:after, .row:after {
   clear: both;
 }
@@ -1109,17 +1114,23 @@ nav ul.nav-list {
   display: none;
   position: fixed;
   height: 100%;
-  left: -250px;
+  left: 0;
   top: 50px;
-  transtion: 15s;
+  transtion: 5s;
   margin: 0;
   padding: 0;
-  width: 27.77778%;
+  width: 400px;
 }
 /* line 41, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list.open {
   display: block;
+  transition: 5s;
   left: 0;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
 }
 @media screen and (max-width: 535px) {
   /* line 41, ../sass/4_Regions/_nav.scss */
@@ -1127,7 +1138,7 @@ nav ul.nav-list.open {
     width: 100%;
   }
 }
-/* line 50, ../sass/4_Regions/_nav.scss */
+/* line 57, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li {
   color: white;
   font-size: 24px;
@@ -1137,7 +1148,7 @@ nav ul.nav-list li {
   font-weight: 100;
   list-style: none;
 }
-/* line 57, ../sass/4_Regions/_nav.scss */
+/* line 64, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav {
   border-left: 1px solid #345c58;
   position: absolute;
@@ -1146,13 +1157,13 @@ nav ul.nav-list li#closeNav {
   width: 50px;
 }
 @media screen and (max-width: 535px) {
-  /* line 57, ../sass/4_Regions/_nav.scss */
+  /* line 64, ../sass/4_Regions/_nav.scss */
   nav ul.nav-list li#closeNav {
     right: 0;
     top: 0;
   }
 }
-/* line 69, ../sass/4_Regions/_nav.scss */
+/* line 76, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav button {
   background: #00554c;
   border: 0;
@@ -1163,31 +1174,32 @@ nav ul.nav-list li#closeNav button {
   line-height: 1.73077rem;
   font-weight: 800;
 }
-/* line 76, ../sass/4_Regions/_nav.scss */
+/* line 83, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav button:hover {
   background: white;
   color: #00554c;
 }
-/* line 84, ../sass/4_Regions/_nav.scss */
+/* line 92, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li a {
+  border-bottom: 1px dotted rgba(109, 134, 94, 0.6);
   display: block;
   padding: 15px 6.25%;
   transition: 0.3s;
 }
 @media screen and (max-width: 535px) {
-  /* line 84, ../sass/4_Regions/_nav.scss */
+  /* line 92, ../sass/4_Regions/_nav.scss */
   nav ul.nav-list li a {
     text-align: center;
   }
 }
-/* line 94, ../sass/4_Regions/_nav.scss */
+/* line 103, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li a:hover {
   background: white;
   color: #00554c;
-  margin-left: 2.5%;
+  padding-left: 7.5%;
   transition: .3s;
 }
-/* line 106, ../sass/4_Regions/_nav.scss */
+/* line 115, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon {
   cursor: pointer;
   float: right;
@@ -1204,7 +1216,7 @@ nav #hidden-menu-icon {
   transition: .5s ease-in-out;
   width: 30px;
 }
-/* line 123, ../sass/4_Regions/_nav.scss */
+/* line 132, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span {
   background: #00554c;
   display: block;
@@ -1222,7 +1234,7 @@ nav #hidden-menu-icon span {
   transition: .25s ease-in-out;
   width: 100%;
 }
-/* line 140, ../sass/4_Regions/_nav.scss */
+/* line 149, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(1) {
   top: 0;
   -webkit-transform-origin: left center;
@@ -1230,7 +1242,7 @@ nav #hidden-menu-icon span:nth-child(1) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 147, ../sass/4_Regions/_nav.scss */
+/* line 156, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(2) {
   top: 10px;
   -webkit-transform-origin: left center;
@@ -1238,7 +1250,7 @@ nav #hidden-menu-icon span:nth-child(2) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 154, ../sass/4_Regions/_nav.scss */
+/* line 163, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(3) {
   top: 20px;
   -webkit-transform-origin: left center;
@@ -1246,7 +1258,7 @@ nav #hidden-menu-icon span:nth-child(3) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 167, ../sass/4_Regions/_nav.scss */
+/* line 176, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(1) {
   left: 0;
   -webkit-transform: rotate(45deg);
@@ -1256,12 +1268,12 @@ nav #hidden-menu-icon.open span:nth-child(1) {
   top: -3px;
   width: 40px;
 }
-/* line 176, ../sass/4_Regions/_nav.scss */
+/* line 185, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(2) {
   opacity: 0;
   width: 0;
 }
-/* line 180, ../sass/4_Regions/_nav.scss */
+/* line 189, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(3) {
   left: 0;
   -webkit-transform: rotate(-45deg);
@@ -1270,6 +1282,15 @@ nav #hidden-menu-icon.open span:nth-child(3) {
   transform: rotate(-45deg);
   top: 26px;
   width: 40px;
+}
+
+/* line 206, ../sass/4_Regions/_nav.scss */
+main.shift {
+  overflow: hidden;
+  transition: 0;
+  transform: translate3d(350px, 0, 0);
+  -wekbit-transform: translate3d(350px, 0, 0);
+  -moz-transform: translate3d(350px, 0, 0);
 }
 
 /* line 5, ../sass/6_Pages/_404.scss */

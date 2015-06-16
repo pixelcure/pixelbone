@@ -12,7 +12,7 @@ require([
     'navMenu/navMenu.main',
     'pixelHero/PixelHero',
     'pixelFooter/PixelFooter'
-], function ($, _, Backbone, Util, pixelGlobal, PixelNav, PixelHero, PixelFooter) {
+], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelHero, PixelFooter ) {
 
 
 	// Build Name Space for instiated conustructors
@@ -36,7 +36,6 @@ require([
 
             // Homepage
             '' : 'pixelRoot'
-
         },
 
         process : function() {
@@ -114,7 +113,7 @@ require([
 			heroInnerSkillCol.fetch();		
 
 			// Hide Preloader
-			$('#heroLoader').hide();
+			$('#heroLoader').delay(1000).hide();
 
 			// Show All Views
 			$('.hide').removeClass('hide');
@@ -123,16 +122,14 @@ require([
 
     }); // End Router
 
-
 	// New Rrouter instance
 	pixelCure.router = new pixelCure.Router();
 	
 	// Enable Push State
-	Backbone.history.start({ pushState : true, trigger : true, root : '/' });
+	Backbone.history.start({ pushState : true, trigger : true });
 
-	// Pixel Cure App Components (Nav, Footer, Footer)
-	pixelCure.pixelComponents = {
-		init : function() {
+	// Pixel Cure Navigation
+	pixelCure.pixelNavigation = function ( clickHandler ) {
 
 			// Navigation
 			var pixelNav = new PixelNav.View({
@@ -144,7 +141,7 @@ require([
 			pixelNav.render();
 
 			// Click Hander to Navigate to Routers
-			var clickRoute = $('nav ul.nav-list li a');
+			var clickRoute = $(clickHandler);
 
 			// On URL Click, Navigate to new router
 			clickRoute.on('click', function( e ){
@@ -153,39 +150,13 @@ require([
 				e.preventDefault();
 				
 				// hide views
-				// $('.pixel-view').hide();
+				$('.pixel-view').hide();
 
 				// navigate
 				pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
 			
-			}); // end click route
+			}); // end click route			
 
+	}( $('nav ul.nav-list li a') ) // End Pixel Cure Navigation
 
-			// Footer
-			var footer = $('footer .illustration');
-		    
-		    // Define new Quote, Quotes Collection, and Quote View
-		    var footerQuote = new PixelFooter.Models.Quote(),
-		    	footerQuoteCol = new PixelFooter.Collections.Quotes(),
-		    	footerQuoteView = new PixelFooter.Views.Quotes({
-		    		el : footer,
-		    		collection : footerQuoteCol
-		    	});
-
-			// Fetch Quotes
-			footerQuoteCol.fetch({
-				success : function(){
-					
-					// show footer after success
-					$('footer').fadeIn( 100 );
-				
-				}
-			});	// End Fetch			
-
-		} // end init
-	} // End Pixel Nav
-
-	// Init Pixel Cure App Components
-	pixelCure.pixelComponents.init();
-
-});
+}); // End Require

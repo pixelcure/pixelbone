@@ -126,8 +126,47 @@ define([
 
 /********* HERO VIEWS ************************/
 
-    // Tagline
+    // Base View
+    PixelHero.Views.BaseView = Backbone.View.extend({
+
+        initialize : function () {
+            
+            // on change, render
+            this.listenTo(this.collection, 'change', this.render)
+            
+            // on reset, render
+            this.listenTo(this.collection, 'reset', this.render)
+            
+            // on sync, render
+            this.listenTo(this.collection, 'sync', this.render);
+            
+        },
+
+        render : function() {
+
+            // data collection
+            var collection = this.collection.toJSON();
+            
+            // compile template
+            _.template( this.template );
+
+            // pass the data into the template
+            var data = this.template({
+                data : collection
+            });
+
+            // apend data to $el
+            this.$el.append( data );
+
+            return this;
+        }
+
+    }); // End Base View
+
+
+    // // Tagline
     PixelHero.Views.Tagline = Backbone.View.extend({
+
         template : heroTaglineTemplate,
 
         initialize : function () {
@@ -162,10 +201,29 @@ define([
             return this;
         }
 
+    }); // End Tagline    
+
+    PixelHero.Views.Extended = PixelHero.Views.BaseView.extend({
+
+        template : heroTaglineTemplate,
+
+
+        render : function() {
+
+            // pass the data into the template
+            var data = this.template({
+                tagline : tagline
+            });
+
+            PixelHero.Views.BaseView.prototype.render.call(this); // calling super.baseMethod()
+
+        }
+
     }); // End Tagline
 
     // Inner Callout
     PixelHero.Views.InnerCallout = Backbone.View.extend({
+
         template : heroCalloutTemplate,
 
         initialize : function () {
@@ -203,6 +261,7 @@ define([
 
     // Bottom Callout
     PixelHero.Views.BottomCallout = Backbone.View.extend({
+
         template : heroBottomCalloutTemplate,
 
         initialize : function () {
@@ -240,6 +299,7 @@ define([
 
     // Hero Slider Showpiece
     PixelHero.Views.HeroImage = Backbone.View.extend({
+
         template : heroSliderItemTemplate,
 
         initialize : function () {
@@ -277,6 +337,7 @@ define([
 
     // Hero Skills
     PixelHero.Views.HeroInnerSkills = Backbone.View.extend({
+
         template : heroInnerSkillsTemplate,
 
         initialize : function () {
