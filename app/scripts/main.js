@@ -36,6 +36,7 @@ require([
 
             // Homepage
             '' : 'pixelRoot'
+            
         },
 
         process : function() {

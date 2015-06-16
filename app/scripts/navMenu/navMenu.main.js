@@ -9,7 +9,7 @@ define([
     // Nav Menu Object
     var PixelNav = PixelNav || {};
 
-
+    // Pixel Nav View
     PixelNav.View = Backbone.View.extend({
         
         template : navTemplate,
@@ -20,9 +20,7 @@ define([
             _.template( this.template );
 
             // pass in data
-            var data = this.template({
-                route : this.options.router.routes
-            });
+            var data = this.template({ data : this.options.router.routes });
 
             // append data
             this.$el.append( data );

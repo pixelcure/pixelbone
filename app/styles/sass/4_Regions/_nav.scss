@@ -27,6 +27,7 @@ nav {
 	  	ul.nav-list { 		
   			background: $medicalGreen;
   			@include box-shadow(1px 1px 5px 1px $greenShadow);
+  			cursor: default;
   			display: none;
   			position: fixed;
   			height: 100%;

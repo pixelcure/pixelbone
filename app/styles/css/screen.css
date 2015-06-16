@@ -774,7 +774,7 @@ div.loading {
 
 /* line 13, ../sass/3_Components/_component.scss */
 .scroll-top {
-  background: white;
+  background: #FFF;
   -moz-box-shadow: 1px 1px 1px #345c58;
   -webkit-box-shadow: 1px 1px 1px #345c58;
   box-shadow: 1px 1px 1px #345c58;
@@ -792,7 +792,7 @@ div.loading {
 }
 /* line 28, ../sass/3_Components/_component.scss */
 .scroll-top:hover span {
-  color: white;
+  color: #FFF;
 }
 /* line 34, ../sass/3_Components/_component.scss */
 .scroll-top span {
@@ -835,7 +835,7 @@ footer span.copyright {
 }
 /* line 16, ../sass/4_Regions/_footer.scss */
 footer section.illustration {
-  background: url(../../images/footer-bottom.png) no-repeat right 85px #22bdaf;
+  background: url(../../images/footer-bottom.png) no-repeat right 85px #22BDAF;
   background-size: 1000px;
   -moz-background-size: 1000px;
   -ms-background-size: 1000px;
@@ -923,7 +923,7 @@ footer section.illustration blockquote strong {
   line-height: 18.75px;
   line-height: 1.44231rem;
   font-weight: 100;
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 1px 1px 1px #FFF;
 }
 @media screen and (max-width: 650px) {
   /* line 87, ../sass/4_Regions/_footer.scss */
@@ -944,7 +944,7 @@ footer section.illustration blockquote strong {
 
 /* line 5, ../sass/4_Regions/_header.scss */
 header.outer-wrapper {
-  background: white;
+  background: #FFF;
   -moz-box-shadow: 1px 1px 10px 1px #345c58;
   -webkit-box-shadow: 1px 1px 10px 1px #345c58;
   box-shadow: 1px 1px 10px 1px #345c58;
@@ -1023,7 +1023,7 @@ header.outer-wrapper .inner-header .row .social li:hover span {
 }
 /* line 74, ../sass/4_Regions/_header.scss */
 header.outer-wrapper .inner-header .row .social li span {
-  color: #22bdaf;
+  color: #22BDAF;
   font-size: 16px;
   font-size: 1.23077rem;
   line-height: 20px;
@@ -1059,7 +1059,7 @@ section.hero .callout.intro p {
   font-weight: 100;
   line-height: 1.8em;
   margin-top: 0;
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 1px 1px 1px #FFF;
 }
 /* line 36, ../sass/4_Regions/_hero.scss */
 section.hero .hero-skills {
@@ -1075,7 +1075,7 @@ section.hero .hero-skills li {
 }
 /* line 46, ../sass/4_Regions/_hero.scss */
 section.hero .hero-skills li p {
-  color: white;
+  color: #FFF;
   font-size: 16px;
   font-size: 1.23077rem;
   line-height: 20px;
@@ -1085,7 +1085,7 @@ section.hero .hero-skills li p {
 
 /* line 5, ../sass/4_Regions/_nav.scss */
 nav {
-  background: white;
+  background: #FFF;
   -moz-box-shadow: 1px 1px 1px #345c58;
   -webkit-box-shadow: 1px 1px 1px #345c58;
   box-shadow: 1px 1px 1px #345c58;
@@ -1103,7 +1103,7 @@ nav:hover {
 }
 /* line 21, ../sass/4_Regions/_nav.scss */
 nav:hover #hidden-menu-icon span {
-  background: white;
+  background: #FFF;
 }
 /* line 27, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list {
@@ -1111,6 +1111,7 @@ nav ul.nav-list {
   -moz-box-shadow: 1px 1px 5px 1px #345c58;
   -webkit-box-shadow: 1px 1px 5px 1px #345c58;
   box-shadow: 1px 1px 5px 1px #345c58;
+  cursor: default;
   display: none;
   position: fixed;
   height: 100%;
@@ -1121,7 +1122,7 @@ nav ul.nav-list {
   padding: 0;
   width: 400px;
 }
-/* line 41, ../sass/4_Regions/_nav.scss */
+/* line 42, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list.open {
   display: block;
   transition: 5s;
@@ -1133,14 +1134,14 @@ nav ul.nav-list.open {
   -o-transition: .25s ease-in-out;
 }
 @media screen and (max-width: 535px) {
-  /* line 41, ../sass/4_Regions/_nav.scss */
+  /* line 42, ../sass/4_Regions/_nav.scss */
   nav ul.nav-list.open {
     width: 100%;
   }
 }
-/* line 57, ../sass/4_Regions/_nav.scss */
+/* line 58, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li {
-  color: white;
+  color: #FFF;
   font-size: 24px;
   font-size: 1.84615rem;
   line-height: 30px;
@@ -1148,7 +1149,7 @@ nav ul.nav-list li {
   font-weight: 100;
   list-style: none;
 }
-/* line 64, ../sass/4_Regions/_nav.scss */
+/* line 65, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav {
   border-left: 1px solid #345c58;
   position: absolute;
@@ -1157,29 +1158,29 @@ nav ul.nav-list li#closeNav {
   width: 50px;
 }
 @media screen and (max-width: 535px) {
-  /* line 64, ../sass/4_Regions/_nav.scss */
+  /* line 65, ../sass/4_Regions/_nav.scss */
   nav ul.nav-list li#closeNav {
     right: 0;
     top: 0;
   }
 }
-/* line 76, ../sass/4_Regions/_nav.scss */
+/* line 77, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav button {
   background: #00554c;
   border: 0;
-  color: white;
+  color: #FFF;
   font-size: 18px;
   font-size: 1.38462rem;
   line-height: 22.5px;
   line-height: 1.73077rem;
   font-weight: 800;
 }
-/* line 83, ../sass/4_Regions/_nav.scss */
+/* line 84, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li#closeNav button:hover {
-  background: white;
+  background: #FFF;
   color: #00554c;
 }
-/* line 92, ../sass/4_Regions/_nav.scss */
+/* line 93, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li a {
   border-bottom: 1px dotted rgba(109, 134, 94, 0.6);
   display: block;
@@ -1187,19 +1188,19 @@ nav ul.nav-list li a {
   transition: 0.3s;
 }
 @media screen and (max-width: 535px) {
-  /* line 92, ../sass/4_Regions/_nav.scss */
+  /* line 93, ../sass/4_Regions/_nav.scss */
   nav ul.nav-list li a {
     text-align: center;
   }
 }
-/* line 103, ../sass/4_Regions/_nav.scss */
+/* line 104, ../sass/4_Regions/_nav.scss */
 nav ul.nav-list li a:hover {
-  background: white;
+  background: #FFF;
   color: #00554c;
   padding-left: 7.5%;
   transition: .3s;
 }
-/* line 115, ../sass/4_Regions/_nav.scss */
+/* line 116, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon {
   cursor: pointer;
   float: right;
@@ -1216,7 +1217,7 @@ nav #hidden-menu-icon {
   transition: .5s ease-in-out;
   width: 30px;
 }
-/* line 132, ../sass/4_Regions/_nav.scss */
+/* line 133, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span {
   background: #00554c;
   display: block;
@@ -1234,7 +1235,7 @@ nav #hidden-menu-icon span {
   transition: .25s ease-in-out;
   width: 100%;
 }
-/* line 149, ../sass/4_Regions/_nav.scss */
+/* line 150, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(1) {
   top: 0;
   -webkit-transform-origin: left center;
@@ -1242,7 +1243,7 @@ nav #hidden-menu-icon span:nth-child(1) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 156, ../sass/4_Regions/_nav.scss */
+/* line 157, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(2) {
   top: 10px;
   -webkit-transform-origin: left center;
@@ -1250,7 +1251,7 @@ nav #hidden-menu-icon span:nth-child(2) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 163, ../sass/4_Regions/_nav.scss */
+/* line 164, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon span:nth-child(3) {
   top: 20px;
   -webkit-transform-origin: left center;
@@ -1258,7 +1259,7 @@ nav #hidden-menu-icon span:nth-child(3) {
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-/* line 176, ../sass/4_Regions/_nav.scss */
+/* line 177, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(1) {
   left: 0;
   -webkit-transform: rotate(45deg);
@@ -1268,12 +1269,12 @@ nav #hidden-menu-icon.open span:nth-child(1) {
   top: -3px;
   width: 40px;
 }
-/* line 185, ../sass/4_Regions/_nav.scss */
+/* line 186, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(2) {
   opacity: 0;
   width: 0;
 }
-/* line 189, ../sass/4_Regions/_nav.scss */
+/* line 190, ../sass/4_Regions/_nav.scss */
 nav #hidden-menu-icon.open span:nth-child(3) {
   left: 0;
   -webkit-transform: rotate(-45deg);
@@ -1284,7 +1285,7 @@ nav #hidden-menu-icon.open span:nth-child(3) {
   width: 40px;
 }
 
-/* line 206, ../sass/4_Regions/_nav.scss */
+/* line 207, ../sass/4_Regions/_nav.scss */
 main.shift {
   overflow: hidden;
   transition: 0;
@@ -1344,11 +1345,11 @@ main.shift {
 }
 /* line 53, ../sass/6_Pages/_404.scss */
 .page-not-found .hero-inner .hero-content.four-oh-four .message ul {
-  color: white;
+  color: #FFF;
 }
 /* line 57, ../sass/6_Pages/_404.scss */
 .page-not-found .hero-inner .hero-content.four-oh-four .message a.home {
-  background: #d93537;
+  background: #D93537;
   margin-top: 25px;
   width: 50%;
 }
@@ -1393,7 +1394,7 @@ html, body {
 /* line 31, ../sass/screen.scss */
 body {
   background: url(../../../images/background.jpg) repeat;
-  color: white;
+  color: #FFF;
   font-family: "Open Sans", Arial, Sans Serif;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -1406,6 +1407,6 @@ body {
 
 /* line 41, ../sass/screen.scss */
 a {
-  color: white;
+  color: #FFF;
   text-decoration: none;
 }

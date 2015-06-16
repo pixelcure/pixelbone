@@ -148,7 +148,7 @@ define([
             var collection = this.collection.toJSON();
             
             // compile template
-            _.template( this.template );
+            _.template( this.template ? this.template : undefined );
 
             // pass the data into the template
             var data = this.template({

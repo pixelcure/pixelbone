@@ -10,35 +10,55 @@ define([
     var pixelGlobal = pixelGlobal || {};
 
     // Nav Menu
-    pixelGlobal.nav = function(nav, icon, navList){
+    pixelGlobal.nav = function(nav, icon, navList, closeNav){
         
         var $nav = $(nav),
             $icon = $(icon),
-            $navList = $(navList);
+            $navList = $(navList),
+            $closeNav = $(closeNav);
 
         // set click event and on click hide/show
         $nav.on('click', function(e){
 
             // if open, remove it, if not, close it
             if( $icon.hasClass('open') ){
+                
+                // remove open class
                 $icon.removeClass('open');
+                
+                // open nav class
                 $navList.removeClass('open');
+                
                 // animate content in <main> over to left    
-                $('main').removeClass('shift');
+                $('main').css({
+                    transform : 'translateX(0)',
+                    mozTransform : 'translateX(0)'
+                });
+
                 // enable side scroll
                 $(document.body).removeClass('overflow-hidden-x');
+            
             } else {
+
+                // add class open
                 $icon.addClass('open');
+
+                // add class open
                 $navList.addClass('open');
+                
                 // animate content in <main> over to right
-                $('main').addClass('shift');
+                $('main').css({
+                    transform : 'translateX(' + $navList.width() + 'px)',
+                    mozTransform : 'translateX(' + $navList.width() + 'px)'
+                });
+                
                 // kill side scroll
                 $(document.body).addClass('overflow-hidden-x');                
             }
 
-        });
+        }); // end nav on click
 
-    }( $('nav'), $('#hidden-menu-icon'), $('nav ul.nav-list') );
+    }( $('nav'), $('#hidden-menu-icon'), $('nav ul.nav-list'), $('#closeNav') );
 
     pixelGlobal.footer = function(footer, footerInner){
         
