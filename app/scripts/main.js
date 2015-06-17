@@ -14,6 +14,7 @@ require([
     'pixelFooter/PixelFooter'
 ], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelHero, PixelFooter ) {
 
+	console.dir(PixelHero);
 
 	// Build Name Space for instiated conustructors
 	var pixelCure = pixelCure || {};
@@ -57,52 +58,39 @@ require([
 
         pixelRoot : function() {
 
+        	// set $el
 			var hero = $('section.hero');
 
-			/** HERO SLIDER **/
-
 		    // Define new Slider Item, Slider Items Collection, and Slider View
-		    var heroSlider = new PixelHero.Models.HeroImage(),
-		    	heroSliderCol = new PixelHero.Collections.HeroImages(),
+			var heroSliderCol = new PixelHero.Collections.HeroImages(),
 		    	heroSliderView = new PixelHero.Views.HeroImage({
 		    		el : hero,
 		    		collection : heroSliderCol
 		    	});
-
-			// Fetch Images
-			//heroSliderCol.fetch({});
-
-			/** TAGLINE **/
-			
+				
 			// Define new Tagline, Tagline Collection, and Tagline View
-		    var heroTagline = new PixelHero.Models.Tagline(),
-		        heroTaglineCol = new PixelHero.Collections.Tagline(),
-		        heroTaglineView = new PixelHero.Views.Tagline({ 
+			var heroTaglineCol = new PixelHero.Collections.Tagline(),
+		        heroTaglineView = new PixelHero.Views.Tagline({
 		            el : $('section.hero .tagline'),
 		            collection : heroTaglineCol
 		        });
-
-
-		    /** HERO INNER CALLOUTS **/
 		    
 		    // Define new Inner Callout, Inner Callouts Collection, and Inner Callout View
-		    var heroInnerCallout = new PixelHero.Models.InnerCallout(),
-		    	heroInnerCalloutCol = new PixelHero.Collections.InnerCallouts(),
+			var heroInnerCalloutCol = new PixelHero.Collections.InnerCallouts(),
 		    	heroInnerCalloutView = new PixelHero.Views.InnerCallout({
 		    		el : $('section.hero .intro'),
 		    		collection : heroInnerCalloutCol
 		    	});
-
-
-			/** HERO INNER SKILLS **/
 		    
 		    // Define new Inner Skill, Inner Skills Collection, and Inner Skills View
-		    var heroInnerSkill = new PixelHero.Models.InnerSkill(),
-		    	heroInnerSkillCol = new PixelHero.Collections.InnerSkills(),
+			var heroInnerSkillCol = new PixelHero.Collections.InnerSkills(),
 		    	heroInnerSkillView = new PixelHero.Views.HeroInnerSkills({
 		    		el : $('section.hero ul.hero-skills'),
 		    		collection : heroInnerSkillCol
 		    	});
+
+			// Fetch Slider
+			// heroSliderCol.fetch({});
 
 		    // Fetch Tagline
 		    heroTaglineCol.fetch();
