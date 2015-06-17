@@ -10,9 +10,10 @@ require([
     'util',
     'global/global',
     'navMenu/navMenu.main',
+    'pixelBase/PixelBase',
     'pixelHero/PixelHero',
     'pixelFooter/PixelFooter'
-], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelHero, PixelFooter ) {
+], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelBase, PixelHero, PixelFooter ) {
 
 
 	// Build Name Space for instiated conustructors
@@ -148,7 +149,7 @@ require([
 			clickRoute.on('click', function( e ){
 				
 				// prevent default anchor behavior
-				e.preventDefault();
+				// e.preventDefault();
 				
 				// hide views
 				$('.pixel-view').hide();

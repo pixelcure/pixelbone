@@ -3,6 +3,7 @@ define([
     'lodash', 
     'backbone',
     '../util',
+    '../pixelBase/PixelBase',
     'ldsh!./templates/heroTagline',
     'ldsh!./templates/heroCallout',
     'ldsh!./templates/heroBottomCallout',
@@ -13,13 +14,14 @@ define([
     _, 
     Backbone, 
     Util, 
+    PixelBase,
     heroTaglineTemplate, 
     heroCalloutTemplate, 
     heroBottomCalloutTemplate, 
     heroSliderItemTemplate,
     heroInnerSkillsTemplate
 ){
-
+    console.dir(PixelBase);
     // Define our object that will contain our views
     var PixelHero = {
         Models : {},

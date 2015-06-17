@@ -33,7 +33,6 @@ nav {
   			height: 100%;
   			left: 0;
   			top: 50px;
-  			transtion: 5s;
   			margin: 0;	 
   			padding: 0; 		
 			width: 400px;
@@ -41,13 +40,12 @@ nav {
   			// open nav
   			&.open {  
   				display: block;
-  				transition: 5s;
   				left: 0;
 			 	transform: translate3d( 0, 0, 0 );
                 -webkit-transform: translate3d( 0, 0, 0 );
-                -webkit-transition: .25s ease-in-out;
-				-moz-transition: .25s ease-in-out;
-				-o-transition: .25s ease-in-out;
+                -webkit-transition: 2s ease-in-out;
+				-moz-transition: 2s ease-in-out;
+				-o-transition: 2s ease-in-out;
 
   				@include max-screen(535px){
   					width: 100%;
@@ -201,7 +199,7 @@ nav {
 			} // end Open
 		} // End Hidden Menu Icon
 
-} // End Nav <--
+} // End Nav
 
 // For Nav Animation
 main.shift {
@@ -210,4 +208,4 @@ main.shift {
 	transform: translate3d(350px, 0, 0);
 	-wekbit-transform: translate3d(350px, 0, 0);
 	-moz-transform: translate3d(350px, 0, 0);
-}
+} // End Main <--
