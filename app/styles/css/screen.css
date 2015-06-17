@@ -839,14 +839,15 @@ footer ul.footer-nav {
 }
 /* line 20, ../sass/4_Regions/_footer.scss */
 footer ul.footer-nav li {
-  list-style: none;
   float: left;
+  list-style: none;
+  margin-right: 1.5625%;
 }
-/* line 25, ../sass/4_Regions/_footer.scss */
+/* line 26, ../sass/4_Regions/_footer.scss */
 footer ul.footer-nav li:last-child#closeNav {
   display: none;
 }
-/* line 33, ../sass/4_Regions/_footer.scss */
+/* line 34, ../sass/4_Regions/_footer.scss */
 footer section.illustration {
   background: url(../../images/footer-bottom.png) no-repeat right 85px #22BDAF;
   background-size: 1000px;
@@ -856,24 +857,24 @@ footer section.illustration {
   transition: .3s;
 }
 @media screen and (max-width: 1000px) {
-  /* line 33, ../sass/4_Regions/_footer.scss */
+  /* line 34, ../sass/4_Regions/_footer.scss */
   footer section.illustration {
     background-position: 130px 85px;
   }
 }
 @media screen and (max-width: 850px) {
-  /* line 33, ../sass/4_Regions/_footer.scss */
+  /* line 34, ../sass/4_Regions/_footer.scss */
   footer section.illustration {
     background-position: 0 85px;
   }
 }
 @media screen and (max-width: 405px) {
-  /* line 33, ../sass/4_Regions/_footer.scss */
+  /* line 34, ../sass/4_Regions/_footer.scss */
   footer section.illustration {
     background-position: -25px 145px;
   }
 }
-/* line 54, ../sass/4_Regions/_footer.scss */
+/* line 55, ../sass/4_Regions/_footer.scss */
 footer section.illustration blockquote {
   position: absolute;
   right: 50px;
@@ -883,26 +884,26 @@ footer section.illustration blockquote {
   width: 27.77778%;
 }
 @media screen and (max-width: 1055px) {
-  /* line 54, ../sass/4_Regions/_footer.scss */
+  /* line 55, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote {
     top: 50px;
   }
 }
 @media screen and (max-width: 1000px) {
-  /* line 54, ../sass/4_Regions/_footer.scss */
+  /* line 55, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote {
     top: 30px;
   }
 }
 @media screen and (max-width: 720px) {
-  /* line 54, ../sass/4_Regions/_footer.scss */
+  /* line 55, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote {
     right: 100px;
     width: 41.66667%;
   }
 }
 @media screen and (max-width: 650px) {
-  /* line 54, ../sass/4_Regions/_footer.scss */
+  /* line 55, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote {
     margin-top: 0;
     top: 50px;
@@ -911,13 +912,13 @@ footer section.illustration blockquote {
   }
 }
 @media screen and (max-width: 405px) {
-  /* line 54, ../sass/4_Regions/_footer.scss */
+  /* line 55, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote {
     right: 0;
     top: 20px;
   }
 }
-/* line 87, ../sass/4_Regions/_footer.scss */
+/* line 88, ../sass/4_Regions/_footer.scss */
 footer section.illustration blockquote p {
   font-family: "Oleo Script", Arial, Sans Serif;
   font-weight: 100;
@@ -928,7 +929,7 @@ footer section.illustration blockquote p {
   text-shadow: 1px 1px #345c58;
   line-height: 1.5em;
 }
-/* line 96, ../sass/4_Regions/_footer.scss */
+/* line 97, ../sass/4_Regions/_footer.scss */
 footer section.illustration blockquote strong {
   color: #00554c;
   font-size: 15px;
@@ -939,14 +940,14 @@ footer section.illustration blockquote strong {
   text-shadow: 1px 1px 1px #FFF;
 }
 @media screen and (max-width: 650px) {
-  /* line 104, ../sass/4_Regions/_footer.scss */
+  /* line 105, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote p {
     font-size: 14px;
     font-size: 1.07692rem;
     line-height: 17.5px;
     line-height: 1.34615rem;
   }
-  /* line 107, ../sass/4_Regions/_footer.scss */
+  /* line 108, ../sass/4_Regions/_footer.scss */
   footer section.illustration blockquote strong {
     font-size: 14px;
     font-size: 1.07692rem;
