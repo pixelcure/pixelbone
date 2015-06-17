@@ -32,7 +32,8 @@ define([
                 // animate content in <main> over to left    
                 $('main').css({
                     transform : 'translateX(0)',
-                    mozTransform : 'translateX(0)'
+                    mozTransform : 'translateX(0)',
+                    msTransform : 'translateX(0)'
                 });
 
                 // enable side scroll
@@ -46,10 +47,14 @@ define([
                 // add class open
                 $navList.addClass('open');
                 
+                // navlist width, sets X value of translate
+                var $navWidth = $navList.width();
+
                 // animate content in <main> over to right
                 $('main').css({
-                    transform : 'translateX(' + $navList.width() + 'px)',
-                    mozTransform : 'translateX(' + $navList.width() + 'px)'
+                    transform : 'translateX(' + $navWidth + 'px)',
+                    mozTransform : 'translateX(' + $navWidth + 'px)',
+                    msTransform : 'translateX(' + $navWidth + 'px)'
                 });
                 
                 // kill side scroll

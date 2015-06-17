@@ -21,7 +21,7 @@ define([
     heroSliderItemTemplate,
     heroInnerSkillsTemplate
 ){
-
+    console.dir(PixelBase);
     // Define our object that will contain our views
     var PixelHero = {
         Models : {},
