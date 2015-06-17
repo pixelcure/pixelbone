@@ -12,7 +12,24 @@ footer {
 	span.copyright {
 		@include font-size(11px);
 	}
+	
+	// footer nav
+	ul.footer-nav {
+		overflow: hidden;
 
+		li {
+			list-style: none;
+			float: left;
+			
+			// hide x, from template
+			&:last-child#closeNav {
+				display: none;
+			}
+		} // end li
+
+	} // end footer nav
+	
+	// footer illustration
 	section.illustration {
 		background: url(../../images/footer-bottom.png) no-repeat right 85px $teal;
 		background-size: 1000px;

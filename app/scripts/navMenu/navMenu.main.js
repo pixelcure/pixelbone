@@ -13,8 +13,12 @@ define([
     PixelNav.View = Backbone.View.extend({
         
         template : navTemplate,
+
         
         render : function() {
+
+            // append footer nav, same template
+            $footer = $( this.options.footer )
 
             // compile template
             _.template( this.template );
@@ -24,6 +28,9 @@ define([
 
             // append data
             this.$el.append( data );
+
+            // append nav to footer
+            $footer.append( data );
 
         } // End Render
         

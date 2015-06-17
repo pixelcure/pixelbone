@@ -124,6 +124,7 @@ require([
 			// Navigation
 			var pixelNav = new PixelNav.View({
 				el : $('#pixelNav'),
+				footer : $('footer .footer-nav'),
 				router : pixelCure.router
 			});
 

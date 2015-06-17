@@ -62,6 +62,7 @@ nav {
   				// Close Button
   				&#closeNav {
   					border-left: 1px solid $greenShadow;
+  					height: 67px;
   					position: absolute;
 					right: -50px;
 					top: 15%;
@@ -78,6 +79,7 @@ nav {
   						color: $white;
   						@include font-size(18px);
   						font-weight: 800;
+  						height: 66px;
 
   						&:hover {
   							background: $white;
