@@ -22,7 +22,7 @@ define([
             
             // if open, remove it, if not, close it
             if( $icon.hasClass('open') ){
-                console.log('close nave');
+
                 // remove open class
                 $icon.removeClass('open');
                 
@@ -40,7 +40,7 @@ define([
                 $(document.body).removeClass('overflow-hidden-x');
             
             } else {
-                console.log('open nav');
+
                 // add class open
                 $icon.addClass('open');
 

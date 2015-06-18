@@ -2,6 +2,7 @@
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+var modRewrite = require('connect-modrewrite');
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
@@ -20,7 +21,6 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     // load compass
     grunt.loadNpmTasks('grunt-contrib-compass');
-    
     // configurable paths
     var yeomanConfig = {
         app: 'app',
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
             }
-        },
+        },     
         connect: {
             options: {
                 port: SERVER_PORT,
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.app)                            
                         ];
                     }
                 }

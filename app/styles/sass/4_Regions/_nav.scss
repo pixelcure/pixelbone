@@ -60,7 +60,7 @@ nav {
   				list-style: none;
   				
   				// Close Button
-  				&#closeNav {
+  				&.close-nav {
   					border-left: 1px solid $greenShadow;
   					height: 67px;
   					position: absolute;

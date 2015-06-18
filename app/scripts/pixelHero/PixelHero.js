@@ -21,8 +21,8 @@ define([
     heroSliderItemTemplate,
     heroInnerSkillsTemplate
 ){
-    console.dir(PixelBase);
-    // Define our object that will contain our views
+
+    // Define Hero
     var PixelHero = {
         Models : {},
         Collections : {},
@@ -33,79 +33,64 @@ define([
 
     // Hero Tagline
     PixelHero.Collections.Tagline = PixelBase.Collection.extend({
-    
+        // json call type
         postType : 'heroTagline'
-    
     });
 
     // Hero Inner Callouts
     PixelHero.Collections.InnerCallouts = PixelBase.Collection.extend({
-    
+        // json call type
         postType : 'heroCallouts'
-    
     });    
 
     // Hero Inner Skills
     PixelHero.Collections.InnerSkills = PixelBase.Collection.extend({
-    
+        // json call type
         postType : 'heroSkills'
-    
     });
 
     // Hero Slider Images
     PixelHero.Collections.HeroImages = PixelBase.Collection.extend({
-    
+        // json call type
         postType : 'post&category=hero-slider'
-    
     });
     
     // Hero Bottom Callouts
     PixelHero.Collections.BottomCallouts = PixelBase.Collection.extend({
-    
+        // json call type
         postType : 'pixelBottomCallout'
-    
     });
 
 /********* HERO VIEWS ************************/
     
     // Hero Tagline
     PixelHero.Views.Tagline = PixelBase.View.extend({
-        
         // Pass In Template for Tagline
         template : heroTaglineTemplate
-    
     }); // End Tagline    
 
     // Inner Callout
     PixelHero.Views.InnerCallout = PixelBase.View.extend({
-        
         // Pass In Template for Callout
-        template : heroCalloutTemplate,
-
+        template : heroCalloutTemplate
     }); // End Inner Callout
 
     // Bottom Callout
     PixelHero.Views.BottomCallout = PixelBase.View.extend({
-        
         // Pass In Template for Hero Bottom Callout
-        template : heroBottomCalloutTemplate,
-
+        template : heroBottomCalloutTemplate
     }); // End Bottom Callout
 
     // Hero Slider Showpiece
     PixelHero.Views.HeroImage = PixelBase.View.extend({
-        
         // Pass In Template for Slider Item
-        template : heroSliderItemTemplate,
-
+        template : heroSliderItemTemplate
     }); // End Hero Slider Showpiece
 
     // Hero Skills
     PixelHero.Views.HeroInnerSkills = PixelBase.View.extend({
-        
         // Pass In Template for Hero Skills
-        template : heroInnerSkillsTemplate,
-
+        template : heroInnerSkillsTemplate
     }); // End Hero Skills
 
 

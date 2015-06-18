@@ -23,10 +23,12 @@ define([
     
     // Base Collection
     PixelBase.Collection = Backbone.Collection.extend({
-
+        
         model : PixelBase.Model,
 
-        url : 'http://api.pixelcureinteractive.com/?json=1&post_type=' + this.postType,
+        url : function() { 
+            return  'http://api.pixelcureinteractive.com/?json=1&post_type=' + this.postType
+        },
 
         parse : function(res) {
             return res.posts
@@ -57,7 +59,7 @@ define([
             var collection = this.collection.toJSON();
             
             // compile template
-            _.template( this.template ? this.template : undefined );
+            _.template( this.template );
 
             // pass the data into the template
             var data = this.template({

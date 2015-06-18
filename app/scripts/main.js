@@ -15,7 +15,6 @@ require([
     'pixelFooter/PixelFooter'
 ], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelBase, PixelHero, PixelFooter ) {
 
-	console.dir(PixelHero);
 
 	// Build Name Space for instiated conustructors
 	var pixelCure = pixelCure || {};
@@ -118,36 +117,41 @@ require([
 	// Enable Push State
 	Backbone.history.start({ pushState : true, trigger : true });
 
-	// Pixel Cure Navigation
-	pixelCure.pixelNavigation = function ( clickHandler ) {
 
-			// Navigation
-			var pixelNav = new PixelNav.View({
-				el : $('#pixelNav'),
-				footer : $('footer .footer-nav'),
-				router : pixelCure.router
-			});
+	$(function(){
+		// Pixel Cure Navigation
+		pixelCure.pixelNavigation = function ( clickHandler ) {
 
-			// Render Nav
-			pixelNav.render();
+				// Navigation
+				var pixelNav = new PixelNav.View({
+					el : $('#pixelNav'),
+					footer : $('footer ul.nav-list'),
+					router : pixelCure.router
+				});
 
-			// Click Hander to Navigate to Routers
-			var clickRoute = $(clickHandler);
+				// Render Nav
+				pixelNav.render();
 
-			// On URL Click, Navigate to new router
-			clickRoute.on('click', function( e ){
+				// Click Hander to Navigate to Routers
+				var $clickRoute = $( clickHandler ),
+					$view = $('.pixel-view');
 				
-				// prevent default anchor behavior
-				// e.preventDefault();
-				
-				// hide views
-				$('.pixel-view').hide();
+				$('ul.nav-list li').on('a', function(e){
+					
+					// prevent default action
+					e.preventDefault();
 
-				// navigate
-				pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
-			
-			}); // end click route			
+					// hide views
+					$('.pixel-view').hide();
 
-	}( $('nav ul.nav-list li a') ) // End Pixel Cure Navigation
+					// navigate
+					pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
+
+				})
+				// On URL Click, Navigate to new router		
+
+		}( $('ul.nav-list li a') ) // End Pixel Cure Navigation
+		
+	})
 
 }); // End Require

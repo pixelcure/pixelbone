@@ -5,25 +5,34 @@
 footer {
 	background: $medicalGreen;
 	display: none;
+	@include font-size(11px);
 	margin-top: 45px;
 	overflow: hidden;
 
-	// copyright
-	span.copyright {
-		@include font-size(11px);
-	}
-	
 	// footer nav
-	ul.footer-nav {
+	ul.nav-list {
+		float: right;
+		margin: 0;
 		overflow: hidden;
+		padding: 0;
+		width: percentage(200/960);
 
 		li {
 			float: left;
 			list-style: none;
-			margin-right: percentage(15/960);
+			margin-right: percentage(15/200);
+			
+			// nav item
+			a:hover {
+				text-decoration: underline;
+			}
+
+			&:nth-child(4) {
+				margin-right: 0;
+			}
 			
 			// hide x, from template
-			&:last-child#closeNav {
+			&.close-nav {
 				display: none;
 			}
 		} // end li
