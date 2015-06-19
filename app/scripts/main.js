@@ -57,7 +57,6 @@ require([
         },
 
         pixelRoot : function() {
-
         	// set $el
 			var hero = $('section.hero');
 
@@ -113,12 +112,13 @@ require([
 
 	// New Rrouter instance
 	pixelCure.router = new pixelCure.Router();
-	
-	// Enable Push State
-	Backbone.history.start({ pushState : true, trigger : true });
 
-
+	// Document Ready
 	$(function(){
+
+		// Enable Push State
+		Backbone.history.start({ pushState : true });
+
 		// Pixel Cure Navigation
 		pixelCure.pixelNavigation = function ( clickHandler ) {
 
@@ -142,16 +142,15 @@ require([
 					e.preventDefault();
 
 					// hide views
-					$('.pixel-view').hide();
+					$view.hide();
 
 					// navigate
 					pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
 
-				})
-				// On URL Click, Navigate to new router		
+				}); // end click
 
 		}( $('ul.nav-list li a') ) // End Pixel Cure Navigation
 		
-	})
+	}) // End Doc Ready
 
 }); // End Require

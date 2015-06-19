@@ -2,7 +2,7 @@
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var modRewrite = require('connect-modrewrite');
+
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
