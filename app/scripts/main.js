@@ -40,22 +40,27 @@ require([
             
         },
 
+        // Inits Process View
         process : function() {
             console.log('process');
         },
 
+        // Inits Design View
         design : function() {
             console.log('design');
         },
 
+        // Inits About View
         about : function() {
             console.log('about');
         },
 
+        // Inits Contact View
         contact : function() {
             console.log('contact');
         },
 
+        // inits Home View
         pixelRoot : function() {
         	// set $el
 			var hero = $('section.hero');
@@ -116,8 +121,15 @@ require([
 	// Document Ready
 	$(function(){
 
+		var winLocation = window.location.href;
+		
 		// Enable Push State and History Start (kicks off router)
-		Backbone.history.start({ pushState : true });
+		// If on stage, use pixelbone root, otherwise, use '/'
+		if( winLocation.includes('bone') ){
+			Backbone.history.start({ pushState : true, root : '/pixelbone' });
+		} else {
+			Backbone.history.start({ pushState : true });
+		}
 
 		// Pixel Cure Navigation
 		pixelCure.pixelNavigation = function ( clickHandler ) {
