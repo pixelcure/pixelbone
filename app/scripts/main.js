@@ -106,7 +106,7 @@ require([
 			heroInnerSkillCol.fetch();		
 
 			// Hide Preloader
-			$('#heroLoader').delay(1000).hide();
+			$('#heroLoader').delay( 1000 ).hide();
 
 			// Show All Views
 			$('.hide').removeClass('hide');
@@ -121,51 +121,51 @@ require([
 	// Pixel Cure Navigation Render
 	pixelCure.pixelNavigation = function () {
 
-			// Navigation
-			var pixelNav = new PixelNav.View({
-				el : $('#pixelNav'),
-				footer : $('footer ul.nav-list'),
-				router : pixelCure.router
-			});
+		// Navigation
+		var pixelNav = new PixelNav.View({
+			el : $('#pixelNav'),
+			footer : $('footer ul.nav-list'),
+			router : pixelCure.router
+		});
 
-			// Render Nav
-			pixelNav.render();
+		// Render Nav
+		pixelNav.render();
+
+		// Document Ready
+		$(function(){
+			
+			// for testing, checks to see if we're on a 
+			// stage to set the route backbone history
+			var winLocation = window.location.href;
+			
+			// Enable Push State and History Start (kicks off router)
+			// If on stage, use pixelbone root, otherwise, use '/'
+			if( winLocation.includes('bone') ){
+				Backbone.history.start({ pushState : true, root : '/pixelbone' });
+			} else {
+				Backbone.history.start({ pushState : true });
+			}
+
+			// Click Hander to Navigate to Routers
+			var $clickRoute = $( 'ul.nav-list li a' ),
+				$view = $('.pixel-view');
+
+				$clickRoute.on('click', function(e){
+					
+					// prevent default action
+					e.preventDefault();
+
+					// hide views
+					$view.hide();
+
+					// navigate
+					pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
+
+				}); // end click
+
+		}); // End Doc Ready
 
 	}() // End Pixel Cure Navigation		
 
-	// Document Ready
-	$(function(){
-		
-		// for testing, checks to see if we're on a 
-		// stage to set the route backbone history
-		var winLocation = window.location.href;
-		
-		// Enable Push State and History Start (kicks off router)
-		// If on stage, use pixelbone root, otherwise, use '/'
-		if( winLocation.includes('bone') ){
-			Backbone.history.start({ pushState : true, root : '/pixelbone' });
-		} else {
-			Backbone.history.start({ pushState : true });
-		}
-
-				
-		// Click Hander to Navigate to Routers
-		var $clickRoute = $( 'ul.nav-list li a' ),
-			$view = $('.pixel-view');
-
-			$clickRoute.on('click', function(e){
-				
-				// prevent default action
-				e.preventDefault();
-
-				// hide views
-				$view.hide();
-
-				// navigate
-				pixelCure.router.navigate( $(this).attr('href'), { trigger : true } );
-
-			}); // end click
-
-	}); // End Doc Ready
 
 }); // End Require
