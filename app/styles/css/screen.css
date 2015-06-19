@@ -1433,3 +1433,8 @@ a {
   color: white;
   text-decoration: none;
 }
+
+/* line 46, ../sass/screen.scss */
+.hide {
+  display: none;
+}
