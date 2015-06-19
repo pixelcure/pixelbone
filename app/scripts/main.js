@@ -116,7 +116,7 @@ require([
 	// Document Ready
 	$(function(){
 
-		// Enable Push State
+		// Enable Push State and History Start (kicks off router)
 		Backbone.history.start({ pushState : true });
 
 		// Pixel Cure Navigation
