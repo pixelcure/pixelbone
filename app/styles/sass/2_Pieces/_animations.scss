@@ -1,0 +1,142 @@
+  ////////////////////////////////
+ // ANIMATIONS //////////////////
+////////////////////////////////
+
+
+@keyframes slideOut {
+  0% {
+  	background: $white;
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+  	opacity: .5;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes loaderLiquidFade {
+	from {
+		opacity: .1;
+	}
+	to {
+		opacity: .45;
+	}
+}
+
+@keyframes loaderBorder {
+	from {
+    	stroke-dasharray: -50px;
+    	opacity: .6;
+	}
+	to {
+		stroke-dasharray: 250px;
+		opacity: 1;
+	}
+}
+
+@keyframes liquidMove {
+	from {
+		stroke-dashoffset: 9
+	}
+}
+
+@keyframes testTubeFade {
+	from {
+		fill: $darkBlue;
+		opacity: .5;
+	}
+	to {
+		fill:$gradientBlue;
+		opacity: 1;
+	}
+}
+
+@keyframes bubbleShift {
+	from {
+		top:-20px;
+		left:-20px;
+		position: relative;
+	}
+	to {
+		left: initial;
+		top: initial;
+	}
+}
+
+@keyframes fireFade {
+	from {
+		fill: #FC5F0B;
+	}
+	to {
+		fill: #AF4107;
+	}
+}
+
+.fireFade {
+	animation: fireFade 1s infinite linear;
+	animation-direction: alternate;
+}
+
+@keyframes slideDown {
+	from {
+		height: 0;
+	}
+	to {
+		height: initial;
+	}
+}
+
+@keyframes foldIn {
+	from {
+		transform: translateZ( -50px ) rotateX( -90deg );
+	}
+	to {
+		transform: translateZ( -50px ) rotateX( 0deg )
+	}
+}
+@keyframes rotateY {
+	from {
+		transform: perspective( 0 ) rotateY(180deg)
+	}
+	to {
+		transform: perspective( 0 ) rotateY(0deg)
+	}
+}
+@keyframes flip {
+	from {
+		transform: rotate3d(1, 2.0, 3.0, 360deg);
+	}
+	to {
+		transform: rotate3d(1, 2.0, 3.0, 0deg);
+	}
+}
+
+@keyframes turn {
+	from {
+		transform: rotate(5turn)
+	}
+	to {
+		transform: rotate(0turn);
+	}
+}
+
+@keyframes flyIn {
+	from {
+		transform: scale(0.95);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes innerShadow {
+	from {
+		box-shadow: inset 0px 1px 69px 0px #0B3F4D;
+	}
+	to {
+		box-shadow: inset 0px 0px 0px 0px transparent;
+	}
+}
