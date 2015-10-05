@@ -10,13 +10,14 @@ require([
     'util',
     'global/global',
     'navMenu/navMenu.main',
+    'navMenu/navDots.main',
     'pixelBase/PixelBase',
     'pixelHero/PixelHero',
     'pixelFooter/PixelFooter'
-], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelBase, PixelHero, PixelFooter ) {
+], function ( $, _, Backbone, Util, pixelGlobal, PixelNav, PixelNavDots, PixelBase, PixelHero, PixelFooter ) {
 
 
-	// Build Name Space for instiated conustructors
+	// Build Name Space for instiated constructors
 	var pixelCure = pixelCure || {};
 
     pixelCure.Router = Backbone.Router.extend({
@@ -27,7 +28,7 @@ require([
             'process' : 'process',
 
             // Design and Art
-            'design' : 'design',
+            'design' : 'pixelRoot',
             
             // About Me
             'about' : 'about',
@@ -62,15 +63,9 @@ require([
 
         // inits Home View
         pixelRoot : function() {
+        	
         	// set $el
 			var hero = $('section.hero');
-
-		    // Define new Slider Item, Slider Items Collection, and Slider View
-			var heroSliderCol = new PixelHero.Collections.HeroImages(),
-		    	heroSliderView = new PixelHero.Views.HeroImage({
-		    		el : hero,
-		    		collection : heroSliderCol
-		    	});
 				
 			// Define new Tagline, Tagline Collection, and Tagline View
 			var heroTaglineCol = new PixelHero.Collections.Tagline(),
@@ -85,7 +80,7 @@ require([
 		    		el : $('section.hero .intro'),
 		    		collection : heroInnerCalloutCol
 		    	});
-		    
+
 		    // Define new Inner Skill, Inner Skills Collection, and Inner Skills View
 			var heroInnerSkillCol = new PixelHero.Collections.InnerSkills(),
 		    	heroInnerSkillView = new PixelHero.Views.HeroInnerSkills({
@@ -93,23 +88,32 @@ require([
 		    		collection : heroInnerSkillCol
 		    	});
 
-			// Fetch Slider
-			// heroSliderCol.fetch({});
-
 		    // Fetch Tagline
-		    heroTaglineCol.fetch();
+		    heroTaglineCol.fetch({
+		    	success : function() {
+					// Fetch Inner Callouts
+					heroInnerCalloutCol.fetch({
+						success : function() {
+							// Fetch Inner Hero Skills
+							heroInnerSkillCol.fetch({
+								success : function() {
+									// Hide Loader
+									$('#preloader').hide();
 
-			// Fetch Inner Callouts
-			heroInnerCalloutCol.fetch();		    
+									// Show All Views
+									$('.hide').removeClass('hide');
 
-			// Fetch Inner Skills
-			heroInnerSkillCol.fetch();		
+									$(hero).find('.scene').addClass('visible');
+								}
+							});
 
-			// Hide Preloader
-			$('#heroLoader').delay( 1000 ).hide();
+						}
+					});	
 
-			// Show All Views
-			$('.hide').removeClass('hide');
+		    	}
+		    });
+				    
+			
         
         } // End Pixel Root
 
@@ -147,7 +151,7 @@ require([
 			}
 
 			// Click Hander to Navigate to Routers
-			var $clickRoute = $( 'ul.nav-list li a' ),
+			var $clickRoute = $( 'ul.nav-list li a, #logo' ),
 				$view = $('.pixel-view');
 
 				$clickRoute.on('click', function(e){

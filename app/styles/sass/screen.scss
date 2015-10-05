@@ -2,6 +2,7 @@
  // IMPORT FILES ////////////////
 ////////////////////////////////
 
+
 @import "compass";
 @import "compass/typography/vertical_rhythm";
 @import 'modular-scale';
@@ -27,18 +28,39 @@ html, body {
     height:100%;
 }
 
-
 body {
-	background: url(../../../images/background.jpg) repeat;
+    background: #039be5;
 	color: $white;
-	font-family: $openSans;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 	@include font-size(12px);
 	line-height: 1.5em;
 }
 
+// Pixel Scroll Bar
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+
+::-webkit-scrollbar-track {
+	background: $black;
+    -webkit-box-shadow: inset 0 0 1px $gradientBlue; 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: $pixelBlue;
+    border-radius: 10px;
+    stroke: 1px solid $aqua;
+}
+
+
 a {
 	color: $white;
 	text-decoration: none;
 }
+

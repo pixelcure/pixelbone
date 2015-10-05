@@ -2,51 +2,87 @@
  // Components ///////////////////////////
 /////////////////////////////////////////
 
-// Preloader
-div.loading {
-	margin: 0 auto;
-	max-width: 43px;
-	width: percentage(43/960);
-} // End Preloader
 
-// Scroll to top
-.scroll-top {
-	background: $white;
-	@include box-shadow(1px 1px 1px $greenShadow);
-	cursor: pointer;
-	bottom: 0;
-	height: 40px;
-	position: fixed;
-	right: 0;
-	width: 40px;
-	z-index: 1000;
-	
-	&:hover {
-		background: $medicalGreen;
-		
-		// icon hover
-		span {
-			color: $white;
+main {
+
+	// Preloader
+	div.loading {
+		background: -webkit-linear-gradient(top,$aqua,$gradientBlue);
+		background: -o-linear-gradient(top,$aqua,$gradientBlue);
+		background: -moz-linear-gradient(top,$aqua,$gradientBlue);
+	    height: 100%;	
+	    position: fixed;
+	    width: 100%;
+	    z-index: 1000;
+
+		svg.loader-svg {	
+			animation: loaderBorder .8s infinite cubic-bezier(0.9, 0.19, 1, 1);
+		    position: absolute;
+		    left: 50%;
+		    stroke-dashoffset: -30px;
+		    transform: translate(-50%, -50%);
+		    top: 50%;
+		    width: percentage(150/1440);
+		    
+		    .bubble,
+		    .liquid { 
+				animation: loaderLiquidFade .5s infinite cubic-bezier(1,-0.94, 1, 1);
+				animation-direction: alternate;
+				animation-play-state: running;	
+				opacity: .5; 
+		    } // end liquid
+
+		    .outer-glow {
+		    	stroke: $aqua;
+		    	&.special {
+		    		stroke: transparent;
+		    		fill: $aqua;
+		    	}
+		    } // end outer glow
+
+		} // end svg
+
+	} // End Preloader
+
+	// Scroll to top
+	.scroll-top {
+
+	} // end scroll top
+
+	// Pixel View
+	.pixel-view {
+		transition: 0.3s;
+		margin-top: 50px;
+		position: relative;
+		height: 100%;
+
+		&.hero {
+			margin-top: 0;
 		}
-	} // end hover
+		@include max-screen(1160px){
+			padding-left: 50px;
+		}
+	} // end pixel view
 
-	// icon
-	span {
-		color: $medicalGreen;
-		@include font-size(15px);
-	  	display: block;
-		margin: 10px auto;
-		width: 15px;
-	} // end icon
-} // end scroll top
+	// Dev Skills
+	.dev-skills {
+		display: table;
+		width: percentage(300/960);
 
-// Pixel View
-.pixel-view {
-	transition: 0.3s;
-	margin-top: 70px;
-	position: relative;
+		li {
+			background: $white;
+			display: table-cell;
+			list-style: none;
+			margin: percentage(25/300);
+			padding: percentage(5/300);
+			text-align: center;
+			
+			p {
+				color: $black;
+				@include font-size(16px);
+				font-weight: 100;
+			}
+		}
+	} // End Dev Skills
 
-	@include max-screen(1160px){
-		padding-left: 50px;
-	}
-} // end pixel view
+} // End Main

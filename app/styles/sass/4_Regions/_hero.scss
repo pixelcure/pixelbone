@@ -3,53 +3,121 @@
 /////////////////////////////////////
 
 
-section.hero {
+section.hero { 
+	background: -webkit-linear-gradient(top,$aqua,$gradientBlue);
+	background: -o-linear-gradient(top,$aqua,$gradientBlue);
+	background: -moz-linear-gradient(top,$aqua,$gradientBlue);
+	overflow: hidden;
+	transition: .3s;
 
-	// Hero Tagline
-	div.hero-blurb h1 {
-		font-family: $oleo;
-		@include font-size(32px);
-		text-shadow: 1px 1px 1px $greenShadow;
-	}
-	
-	// Hero Inner Callouts
-	.callout {
-		&.intro {
-			h2 {
-				font-family: $oleo;
-				@include font-size(24px);
-				margin: 0 0 5px 0;
-				text-shadow: 1px 1px 1px $greenShadow;
+		// Tagline Outer Background
+		.hero-inner-outer {
+			background: rgba(255, 255, 255, .15);
+			padding-bottom: 85px;
+			&.hero-skills { display: none; }
+		} // Hero Tagline Outer Background
+
+		// Pixel Table Animation 
+		div.pixel-table-animation {
+			margin-top: -85px;
+
+			// Test Tube and Bubbles Fade
+			.testTubeFade,.bubbleShift {
+				animation: testTubeFade 2s infinite linear;
+				animation-direction: alternate;
 			}
-			p {
-				color: $medicalGreen;
-				@include font-size(19px);
-				font-weight: 100;
-				line-height: 1.8em;
-				margin-top: 0;
-				text-shadow: 1px 1px 1px $white;	
+
+			// Liquid Test Tube Movement
+			.liquidMove {
+				animation: liquidMove 1s infinite linear;
+				stroke: #333;
+			    stroke-opacity: .3;
+			    stroke-dasharray: 2;
+			    stroke-linecap: round;
+			    stroke-width: 1px;
 			}
-		} // End Intro
-	} // End Callout
+		} // End Pixel Table Animation
+		
 
-	// Hero Dev Skills
-	.hero-skills {
-		width: percentage(300/960);
+		// Hero Inner
+		.hero-inner {
 
-		li {
-			background: rgba(0, 85, 76, .4);
-			list-style: none;
-			margin: percentage(25/300);
-			padding: percentage(5/300);
-			text-align: center;
+			&.hero-top { 
+				padding-top: 75px;
+				margin-bottom: 0; 
+			}
 			
-			p {
-				color: $white;
-				@include font-size(16px);
-				font-weight: 100;
+			&.hero-bottom {
+				    background: $darkBlue;
+					border-radius: 15px;
+				    margin: -50px auto 65px auto;
+				    padding: percentage(25/960);
 			}
-		}
-	} // End Hero Skills
 
+			// Hero Tagline
+			div.hero-blurb {
+				h1 {
+					animation: inOut 3s infinite linear;
+					color: #5A7786;
+					font-family: $openSans;
+					@include font-size(58px);
+					font-weight: 400;
+					margin: 0;
+					text-shadow: 1px 1px 2px #FDFEFC;
+				} 		
+				h2 {
+					font-family: $roboto;
+					@include font-size(38px);
+					font-weight: 100;
+					line-height: 1.6em;
+					margin: 15px 0 5px 0;
+					text-shadow: 1px 1px 0.5px rgba(23, 16, 16, 0.2);
+					
+					span {				
+						&.dev {
+						    border-bottom: 1px dotted $darkBlue;
+						    font-family: monospace;
+						    color: $black;
+						}
+						&.designer {
+		    				color: $darkBlue;
+						    font-family: $lobster;
+						    position: relative;
+
+		    				&:after {
+		    					background: rgba(255, 255, 255, .2);
+							    content: " ";
+						        height: 55px;
+							    left: -5px;
+							    position: absolute;
+	    						padding: 0 5px;
+							    top: 9px;
+							    width: 100%;
+		    				}
+						}
+					}
+
+				}
+			} // End Tagline
+			
+			// Hero Inner Callouts
+			.callout {
+				&.intro {
+					animation-delay: 3s;
+					position: relative;
+
+					p {
+						color: $white;
+						font-family: $quickSand;
+						@include font-size(21px);
+						font-weight: 400;
+						line-height: 1.8em;
+						margin: 0;
+						text-shadow: 1px 1px 1px #636161;
+					}
+				} // End Intro
+			} // End Callout
+
+		} // End Hero Inner
 
 } // End Hero  <---

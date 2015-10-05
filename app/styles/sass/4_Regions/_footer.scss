@@ -2,13 +2,13 @@
  // FOOTER SECTION /////////////////////
 ///////////////////////////////////////
 
-footer {
-	background: $medicalGreen;
-	display: none;
-	@include font-size(11px);
-	margin-top: 45px;
-	overflow: hidden;
 
+footer {
+	background: $black;
+	@include font-size(11px);
+	overflow: hidden;
+	display: none;
+	
 	// footer nav
 	ul.nav-list {
 		float: right;
@@ -41,7 +41,7 @@ footer {
 	
 	// footer illustration
 	section.illustration {
-		background: url(../../images/footer-bottom.png) no-repeat right 85px $teal;
+		background: url(../../images/footer-bottom.png) no-repeat right 85px;
 		background-size: 1000px;
 		-moz-background-size: 1000px;
 		-ms-background-size: 1000px;
@@ -98,13 +98,13 @@ footer {
 			  	font-family: $oleo;
 			  	font-weight: 100;
 			  	@include font-size(18px);
-			  	text-shadow: 1px 1px $greenShadow;
+			  	text-shadow: 1px 1px $darkGrey;
 			  	line-height: 1.5em;
 			  } // end quote p
 			  
 			  // from
 			  strong {
-			  	color: $medicalGreen;
+			  	color: $black;
 			  	@include font-size(15px);
 			  	font-weight: 100;
 			  	text-shadow: 1px 1px 1px $white;

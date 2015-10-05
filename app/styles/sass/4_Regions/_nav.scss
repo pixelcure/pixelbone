@@ -2,115 +2,147 @@
  // NAV /////////////////////////
 ////////////////////////////////
 
+
 nav {
 	  background: $white;
-	  @include box-shadow(1px 1px 1px $greenShadow);
-	  cursor: pointer;
+	  @include box-shadow(1px 1px 1px $black);
 	  height: 45px;
 	  position: fixed;
 	  top: 120px;
 	  width: 45px;
-	  z-index: 1000;
+	  z-index: 2000;
 
 	  	// on hover
 	  	&:hover {
-	  		background: $medicalGreen;
+	  		background: $black;
 	  		transition: .3s;
 
 	  		// change menu icon lines to white
 	  		#hidden-menu-icon span {
-	  			background: $white;
+	  			background: $aqua;
 	  		}
 	  	} // end hover
 
 	  	// nav menu
-	  	ul.nav-list { 		
-  			background: $medicalGreen;
-  			@include box-shadow(1px 1px 5px 1px $greenShadow);
-  			cursor: default;
+	  	div.inner-nav {
+	  		background: black;
+			background-image: linear-gradient(-180deg, $black 39%, $darkBlue 100%);
+  			@include box-shadow(1px 3px 15px 1px $black);
   			display: none;
-  			position: fixed;
   			height: 100%;
   			left: 0;
+  			position: fixed;
   			top: 50px;
-  			margin: 0;	 
-  			padding: 0; 		
-			width: 400px;
+			width: 200px;
 
-  			// open nav
-  			&.open {  
-  				display: block;
-  				left: 0;
-			 	transform: translate3d( 0, 0, 0 );
-                -webkit-transform: translate3d( 0, 0, 0 );
-                -webkit-transition: 2s ease-in-out;
-				-moz-transition: 2s ease-in-out;
-				-o-transition: 2s ease-in-out;
+	  			&.open {  
+	  				display: block;
+	  				left: 0;
+				 	transform: translate3d( 0, 0, 0 );
+	                -webkit-transform: translate3d( 0, 0, 0 );
+	                -webkit-transition: .35s ease-in-out;
+					-moz-transition: .35s ease-in-out;
+					-o-transition: .35s ease-in-out;
 
-  				@include max-screen(535px){
-  					width: 100%;
-  				}
+	  				@include max-screen(535px){
+	  					width: 100%;
+	  				}
 
-  			} // end open nav
+	  			} // end open nav
 
-  			li {
-  				color: $white;
-  				@include font-size(24px);
-  				font-weight: 100;
-  				list-style: none;
-  				
-  				// Close Button
-  				&.close-nav {
-  					border-left: 1px solid $greenShadow;
-  					height: 67px;
-  					position: absolute;
-					right: -50px;
-					top: 15%;
-					width: 50px;
+	  			@keyframes slideUp {
+	  				from {
+	  					left: -300px;
+	  					opacity: 0;
+	  				}
+	  				to {
+	  					left: 0;
+	  					opacity: 1;
+	  				}
+	  			}
 
-					@include max-screen(535px){
-						right: 0;
-						top: 0;
-					}
+	  			figure.dots {
+	  				animation: slideUp 1s infinite cubic-bezier(0.87, 0.18, 1, 1);  				
+		  			position: relative;
 
-					button {
-  						background: $medicalGreen;
-  						border: 0;
-  						color: $white;
-  						@include font-size(18px);
-  						font-weight: 800;
-  						height: 66px;
+		  			svg {
+		  				transition: .3s;
+		  			}
+	  			}
+	  			
+			  	ul.nav-list { 		
+		  			margin: 0;	 
+		  			padding: 0; 		
 
-  						&:hover {
-  							background: $white;
-  							color: $medicalGreen;
-  						}
+	  			// open nav
 
-					} // end close button
-  				} // end close nav
+	  			li {
+	  				color: $white;
+	  				font-family: $quickSand;
+	  				@include font-size(24px);
+	  				font-weight: 500;
+	  				list-style: none;
+	  				
+	  				// Nav Dots
+	  				&.dots {
+					    // bottom: 0;
+					    // position: absolute;
+					    // right: 0;  					
+	  				}
 
-  				// Link
-  				a {
-  					border-bottom: 1px dotted rgba(109, 134, 94, .6);
-  					display: block;
-					padding: 15px percentage(25/400);
-					transition: 0.3s;
+	  				// Close Button
+	  				&.close-nav {
+	  					height: 40px;
+	  					position: absolute;
+						right: -40px;
+						transform: translateY(-15%);
+						top: 15%;
+						width: 40px;
 
-					@include max-screen(535px){
-						text-align: center;
-					}
+						@include max-screen(535px){
+							right: 0;
+							top: 0;
+							transform: translateY(0);
+						}
 
-					// on hover
-  					&:hover {
-  						background: $white;
-  						color: $medicalGreen;
-  						padding-left: percentage(30/400);
-  						transition: .3s;
-  					}
+						button {
+	  						background: $black;
+	  						border: 0;
+	  						color: $aqua;
+	  						font-family: $quickSand;
+	  						@include font-size(18px);
+	  						font-weight: 800;
 
-  				} // end link
-  			} // end list item
-	  	} // end nav list
+	  						&:hover {
+	  							background: $black;
+	  							color: $pixelBlue;
+	  						}
+
+						} // end close button
+	  				} // end close nav
+
+	  				// Link
+	  				a {
+	  					border-bottom: 1px dotted $pixelBlue;
+	  					display: block;
+						padding: 15px percentage(25/400);
+						transition: 0.3s;
+
+						@include max-screen(535px){
+							text-align: center;
+						}
+
+						// on hover
+	  					&:hover {
+	  						color: $aqua;
+	  						padding-left: percentage(40/400);
+	  						transition: .3s;
+	  					}
+
+	  				} // end link
+	  			} // end list item
+		  	} // end nav list
+	  	} // end nav menu
 
 		// nav icon
 		#hidden-menu-icon {
@@ -131,7 +163,7 @@ nav {
 
 			// line backgrounds, transforms
 			span {
-				background: $medicalGreen;
+				background: $black;
 				display: block;
 				height: 2px;
 				left: 0;

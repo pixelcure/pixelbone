@@ -1,3 +1,25 @@
   ////////////////////////////////////
  // REGIONS /////////////////////////
 ////////////////////////////////////
+
+
+.scene {
+	position: relative;
+    -webkit-transform: translate(0,50px);
+    -ms-transform: translate(0,50px);
+    transform: translate(0,50px);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .5s cubic-bezier(.615,.19,.305,.91);
+    transition: all .5s cubic-bezier(.615,.19,.305,.91);
+    -webkit-transition-timing-function: cubic-bezier(.615,.19,.305,.91);
+    transition-timing-function: cubic-bezier(.615,.19,.305,.91);
+    
+    &.visible {
+	    -webkit-transform: translate(0,0);
+	    -ms-transform: translate(0,0);
+	    transform: translate(0,0);
+	    opacity: 1;
+	    filter: alpha(opacity=100);
+    }
+}

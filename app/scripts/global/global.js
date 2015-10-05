@@ -3,8 +3,9 @@ define([
     'lodash', 
     'backbone',
     '../util',
-    '../pixelFooter/PixelFooter'
-], function( $, _, Backbone, Util, PixelFooter ){
+    '../pixelFooter/PixelFooter',
+    '../navMenu/navDots.main'
+], function( $, _, Backbone, Util, PixelFooter, blueDots ){
 
     // Global Methods, All Auto Init
     var pixelGlobal = pixelGlobal || {};
@@ -22,6 +23,9 @@ define([
             
             // if open, remove it, if not, close it
             if( $icon.hasClass('open') ){
+                
+                // remove blue dots
+                $nav.find('svg').remove();
 
                 // remove open class
                 $icon.removeClass('open');
@@ -40,15 +44,18 @@ define([
                 $(document.body).removeClass('overflow-hidden-x');
             
             } else {
-
+                
+                // add blue d3 dots
+                blueDots.init();
+                
                 // add class open
                 $icon.addClass('open');
 
-                // add class open
-                $navList.addClass('open');
-                
                 // navlist width, sets X value of translate
                 var $navWidth = $navList.width();
+
+                // add class open
+                $navList.addClass('open');
 
                 // animate content in <main> over to right
                 $('main').css({
@@ -63,39 +70,45 @@ define([
 
         }); // end nav on click
 
-    }( $('nav'), $('#hidden-menu-icon'), $('nav ul.nav-list'), $('#closeNav') );
+    }( $('nav'), $('#hidden-menu-icon'), $('nav div.inner-nav'), $('#closeNav') );
 
-    pixelGlobal.footer = function(footer, footerInner){
-        
-        // Define new Quote, Quotes Collection, and Quote View
-        var footerQuote = new PixelFooter.Models.Quote(),
-            footerQuoteCol = new PixelFooter.Collections.Quotes(),
-            footerQuoteView = new PixelFooter.Views.Quotes({
-                el : footerInner,
-                collection : footerQuoteCol
-            });
-
-        // Fetch Quotes
-        footerQuoteCol.fetch({
-            success : function(){
-                
-                // show footer after success
-                $(footer).fadeIn( 100 );
+    pixelGlobal.slideScenes = function(scene){
+        document.addEventListener('scroll', function(e){
             
-            }
-        }); // End Fetch
+        });
+    };
 
-    }( $('footer'), $('footer .illustration') );
+    // pixelGlobal.footer = function(footer, footerInner){
+        
+    //     // Define new Quote, Quotes Collection, and Quote View
+    //     var footerQuote = new PixelFooter.Models.Quote(),
+    //         footerQuoteCol = new PixelFooter.Collections.Quotes(),
+    //         footerQuoteView = new PixelFooter.Views.Quotes({
+    //             el : footerInner,
+    //             collection : footerQuoteCol
+    //         });
+
+    //     // Fetch Quotes
+    //     footerQuoteCol.fetch({
+    //         success : function(){
+                
+    //             // show footer after success
+    //             $(footer).fadeIn( 100 );
+            
+    //         }
+    //     }); // End Fetch
+
+    // }( $('footer'), $('footer .illustration') );
 
     // Scroll Up Button
-    pixelGlobal.scrollUp = function(target){
+    // pixelGlobal.scrollUp = function(target){
 
-        // on click
-        $(target).on('click', function(){
-            $('body, html').animate({ scrollTop : '0' }, 400)
-        });
+    //     // on click
+    //     $(target).on('click', function(){
+    //         $('body, html').animate({ scrollTop : '0' }, 400)
+    //     });
 
-    }( $('.scroll-top') ); // End Scroll Up
+    // }( $('.scroll-top') ); // End Scroll Up
 
 
     return pixelGlobal;

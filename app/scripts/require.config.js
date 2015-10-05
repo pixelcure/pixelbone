@@ -26,6 +26,7 @@ require.config({
         underscore: '../bower_components/underscore/underscore-min',
         text: '../bower_components/requirejs-text/text',
         lodash: '../bower_components/lodash/lodash',
-        ldsh: '../bower_components/lodash-template-loader/loader'
+        ldsh: '../bower_components/lodash-template-loader/loader',
+        d3 : '../bower_components/d3/d3.min'
     }
 });

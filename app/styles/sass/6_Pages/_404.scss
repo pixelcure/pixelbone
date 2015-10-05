@@ -2,6 +2,7 @@
  // 404 /////////////////////////
 ////////////////////////////////
 
+
 .page-not-found {
 	background-image: none!important;
 	height: initial!important;
@@ -55,12 +56,12 @@
 					}
 
 					a.home {
-						background: $blood;
+						background: $black;
 						margin-top: 25px;
 						width: 50%;
 						
 						&:hover {
-							background: darken($medicalGreen, .3);
+							background: darken($black, .3);
 						}
 
 						@include max-screen(960px){
